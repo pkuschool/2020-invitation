@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'regular-font';
-    src: url('../drawfont.ttf') format('truetype');
+    src: url('../font/drawfont.ttf') format('truetype');
 }
 
 * {
