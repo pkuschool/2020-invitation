@@ -2,7 +2,6 @@ var avator_w;
 var avator_h;
 var avator = new Image();
 var avator_b64 = localStorage.getItem('avator');
-// console.log(avator_b64)
 if (avator_b64 != "" && avator_b64 != null) {
     avator.src = avator_b64;
     avator.onload = () => {
@@ -11,6 +10,13 @@ if (avator_b64 != "" && avator_b64 != null) {
     }
 }
 console.log(avator.src.length)
+window.onload = () => {
+    // console.log(avator_b64)
+    setTimeout(() => {
+        drawImage()
+    }, 500)
+}
+
 
 function circleImg(ctx, img, x, y, r) {
     ctx.save();
@@ -78,9 +84,7 @@ function drawImage() {
     // ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
     // ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
 }
-setTimeout(() => {
-    drawImage()
-}, 500)
+
 window.onresize = () => {
     setTimeout(() => {
         drawImage()
