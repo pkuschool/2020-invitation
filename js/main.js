@@ -18,8 +18,13 @@ function submit() {
     var house = hosue_el.value;
     if (name == "" || house == "请选择书院") {
         alert("信息填写不完整");
+        return;
     }
     localStorage.setItem("name", name);
     localStorage.setItem("house", house);
+    if(avator_el.value=="")
+    {
+        localStorage.setItem("avator","");
+    }
     window.location = "./print.html";
 }
