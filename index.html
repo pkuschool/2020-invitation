@@ -9,7 +9,7 @@
 </head>
 <body>
     <section hidden>
-        <img src="./background.jpg" alt="">
+        <img src="./img/background.jpg" alt="">
     </section>
     <section id='form'>
         <!-- <h3 style="text-align: center;">2020 届毕业典礼<br>暨成人仪式邀请函</h3> -->
@@ -34,10 +34,11 @@
                 <button type="button" id="upload" class="pure-button" onclick="document.querySelector('#input-file').click()">上传头像</button>
                 <span style="margin-left: 10px;background-color: var(--accent);">上传了XXXX</span>
                 <input type="file" name="upload" id="input-file" hidden>
+                <img src="#" alt="" id="preview">
             </fieldset>
             <!-- <button type="submit" class="pure-button pure-button-primary">确认</button> -->
         </form>
-        <div class="pure-button" id="submit-btn">生成邀请函</div>
+        <div class="pure-button" id="submit-btn" onclick="submit()">生成邀请函</div>
     </section>
 </body>
 <script src="./js/main.js"></script>
