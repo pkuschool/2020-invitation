@@ -21,5 +21,5 @@ function submit() {
     }
     localStorage.setItem("name", name);
     localStorage.setItem("house", house);
-    window.location = "/print.html";
+    window.location = "./print.html";
 }

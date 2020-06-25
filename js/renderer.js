@@ -35,7 +35,7 @@ setInterval(() => {
     var house = localStorage.getItem('house');
     if(name===null||house===null)
     {
-        window.location="/"
+        window.location="./"
     }
 
     var gradient = ctx.createLinearGradient(0, 0, width, 0);
