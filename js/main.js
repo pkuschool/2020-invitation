@@ -22,16 +22,18 @@ function submit() {
     }
     localStorage.setItem("name", name);
     localStorage.setItem("house", house);
-    if(avator_el.value=="")
-    {
-        localStorage.setItem("avator","");
+    if (avator_el.value == "") {
+        localStorage.setItem("avator", "");
     }
     window.location = "./print.html";
 }
+window.onload = () => {
+    document.body.querySelector("#main").style.height = window.innerHeight + "px";
+}
 
-document.querySelector('#input-file').onchange = ()=>{
+document.querySelector('#input-file').onchange = () => {
     var reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function (e) {
         document.querySelector('#avatar-img').src = e.target.result
         document.querySelector('#avatar-img').removeAttribute('hidden')
         document.querySelector('#filename-indicator').innerHTML = document.querySelector('#input-file').files[0].name
