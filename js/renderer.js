@@ -77,6 +77,8 @@ function drawImage(){
     ctx.font = e * font_size + "px 'undef'";
     // ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
     // ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
+    document.querySelector('#output').src = document.querySelector('canvas').toDataURL()
+    document.querySelector('#output').setAttribute('style', document.querySelector('canvas').getAttribute('style'))
 }
 setTimeout(()=>{
     drawImage()
