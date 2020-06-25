@@ -73,7 +73,7 @@ function drawImage() {
     ctx.font = e * 150 + "px 'regular-font'";
     ctx.fillText("" + name, 100 * e, 735 * e);
     ctx.font = e * 70 + "px 'regular-font'";
-    ctx.fillText("" + house + '书院', 100 * e, 860 * e);
+    ctx.fillText("" + house + (["预科部","教师","家长"].indexOf(house)!=-1?'':'书院'), 100 * e, 860 * e);
 
     if (avator_b64 != "" && avator_b64 != null) {
         avator.src = avator_b64;
