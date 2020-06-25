@@ -8,11 +8,35 @@ body{
     background-color: var(--accent);
     color: white;
     box-sizing: border-box;
+    border: 10px white solid;
+    border-radius: 25px;
+    background-image: url(./background.jpg);
+    background-clip: border-box;
+    background-size: contain;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+div#submit-btn{
+    /* position: absolute;
+    bottom: 9%;
+    right: 9%; */
+    margin-top: 15px;
+    border: 2.4px white solid;
+    /* color: white; */
+    background: #f2c959 !important;
+    font-weight: bold;
+    border-radius: 5px;
+}
+#form-main{
+    position: absolute;
+    top: 33%;
+    left: 9%;
 }
 section{
     height: 100vh;
     width: 100vw;
     padding: 20px 18px;
+    position: relative;
 }
 [hidden]{
     display: none;

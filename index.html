@@ -11,15 +11,15 @@
     <section hidden>
         <img src="./background.jpg" alt="">
     </section>
-    <section id='form' >
-        <h3>2020 届毕业典礼邀请函</h3>
-        <form class="pure-form pure-form-stacked">
+    <section id='form'>
+        <!-- <h3 style="text-align: center;">2020 届毕业典礼<br>暨成人仪式邀请函</h3> -->
+        <form class="pure-form pure-form-stacked" method="GET" id="form-main">
             <fieldset>
                 <!-- <legend>请填写信息</legend> -->
                 <label for="stacked-name">姓名</label>
-                <input type="text" id="stacked-name" class="pure-input-1-1" placeholder="姓名" />
+                <input type="text" id="stacked-name" class="pure-input-1" placeholder="姓名" />
                 <label for="stacked-house">书院</label>
-                <select id="stacked-house" class="pure-input-1-1">
+                <select id="stacked-house" class="pure-input-1">
                     <option>格物</option>
                     <option>致知</option>
                     <option>诚意</option>
@@ -29,8 +29,9 @@
                     <option>新民</option>
                     <option>熙敬</option>
                 </select>
+                <div class="pure-button" id="submit-btn">确认生成邀请函</div>
             </fieldset>
-            <button type="submit" class="pure-button pure-button-primary">确认</button>
+            <!-- <button type="submit" class="pure-button pure-button-primary">确认</button> -->
         </form>
     </section>
 </body>
