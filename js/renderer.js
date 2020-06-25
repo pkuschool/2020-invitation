@@ -58,7 +58,7 @@ function drawImage() {
     //
     var ctx = inv_el.getContext("2d");
     let img = new Image();
-    img.src = './img/background.jpg';
+    img.src = 'https://s1.ax1x.com/2020/06/25/NDGRpj.jpg';
     ctx.drawImage(img, 0, 0, width, height);
 
     var name = localStorage.getItem('name');
