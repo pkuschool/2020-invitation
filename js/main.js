@@ -22,6 +22,10 @@ function submit() {
     }
     localStorage.setItem("name", name);
     localStorage.setItem("house", house);
+    if(avator_el.value=="")
+    {
+        localStorage.setItem("avator","");
+    }
     window.location = "./print.html";
 }
 

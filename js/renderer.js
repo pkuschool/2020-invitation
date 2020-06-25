@@ -12,7 +12,18 @@ if (avator_b64 != "" && avator_b64 != null) {
 }
 console.log(avator.src.length)
 
-function drawImage() {
+function circleImg(ctx, img, x, y, r) {
+    ctx.save();
+    var d = 2 * r;
+    var cx = x + r;
+    var cy = y + r;
+    ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+    ctx.clip();
+    ctx.drawImage(img, x, y, d, d);
+    ctx.restore();
+}
+
+function drawImage(){
     var smooth = 3;
     // console.log(avator)
     var height = (window.innerHeight - 20) / 1920;
@@ -35,40 +46,43 @@ function drawImage() {
 
     var name = localStorage.getItem('name');
     var house = localStorage.getItem('house');
-    if(name===null||house===null)
-    {
-        window.location="/"
+    if (name === null || house === null) {
+        window.location = "./"
     }
 
     var gradient = ctx.createLinearGradient(0, 0, width, 0);
     gradient.addColorStop("1.0", "white");
     ctx.fillStyle = gradient;
-    ctx.font = e * 150 + "px 微软雅黑";
+    ctx.font = e * 150 + "px 'regular-font'";
     ctx.fillText("" + name, 105 * e, 735 * e);
-    ctx.font = e * 70 + "px 微软雅黑";
+    ctx.font = e * 70 + "px 'regular-font'";
     ctx.fillText("" + house + '书院', 105 * e, 865 * e);
 
     if (avator_b64 != "" && avator_b64 != null) {
         avator.src = avator_b64;
         var angle = -20;
-        var x = -340;
-        var y = 1250;
-        var final_avator_width = 300;
+        var x = -370;
+        var y = 1270;
+        var final_avator_width = 350;
         var rad = (Math.PI / 180) * angle;
         ctx.rotate(rad);
-        // console.log(avator)
-        setTimeout(()=>{
-            ctx.drawImage(avator, x * e, (y - final_avator_width / avator_w * avator_h) * e, final_avator_width * e, final_avator_width / avator_w * avator_h * e);
-        }, 150)
+        circleImg(ctx, avator, x * e, ((y - final_avator_width / avator_w * avator_h) * e), (final_avator_width * e / 2));
+        // ctx.drawImage(avator, x * e, (y - final_avator_width / avator_w * avator_h) * e, final_avator_width * e, final_avator_width / avator_w * avator_h * e);
         ctx.rotate(-rad);
     }
 
     var left_dis = 700;
     var top_dis = 1700;
-    var font_size=50;
-    ctx.font = e * font_size + "px 微软雅黑";
-    ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
-    ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
+    var font_size = 50;
+    ctx.font = e * font_size + "px 'undef'";
+    // ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
+    // ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
 }
-drawImage()
-window.onresize = ()=>{drawImage()}
+setTimeout(()=>{
+    drawImage()
+},100)
+window.onresize = () => {
+    setTimeout(() => {
+        drawImage()
+    }, 100)
+}
