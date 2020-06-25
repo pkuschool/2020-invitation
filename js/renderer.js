@@ -16,12 +16,12 @@ window.onload = () => {
     setTimeout(()=>{
         // console.log("get");
         hint_el.style["margin-top"]="10px";
-    },800);
+    },500);
     drawImage()
     setTimeout(()=>{
         // console.log("get");
         hint_el.style["margin-top"]="-50px";
-    },5000);
+    },8000);
 }
 
 
