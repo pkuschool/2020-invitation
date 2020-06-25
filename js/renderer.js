@@ -2,19 +2,21 @@ var avator_w;
 var avator_h;
 var avator = new Image();
 var avator_b64 = localStorage.getItem('avator');
-if (avator_b64 != "") {
+// console.log(avator_b64)
+if (avator_b64 != "" && avator_b64 != null) {
     avator.src = avator_b64;
     avator.onload = () => {
         avator_h = avator.height;
         avator_w = avator.width;
     }
 }
+console.log(avator.src.length)
 
-setInterval(() => {
+function drawImage() {
     var smooth = 3;
-
-    var height = (document.body.clientHeight - 20) / 1920;
-    var width = (document.body.clientWidth - 20) / 1081;
+    // console.log(avator)
+    var height = (window.innerHeight - 20) / 1920;
+    var width = (window.innerWidth - 20) / 1081;
     var e = Math.min(height, width) * smooth;
     height = e * 1920;
     width = e * 1081;
@@ -41,18 +43,23 @@ setInterval(() => {
     var gradient = ctx.createLinearGradient(0, 0, width, 0);
     gradient.addColorStop("1.0", "white");
     ctx.fillStyle = gradient;
+    ctx.font = e * 150 + "px 微软雅黑";
+    ctx.fillText("" + name, 105 * e, 735 * e);
     ctx.font = e * 70 + "px 微软雅黑";
-    ctx.fillText("姓名: " + name, 110 * e, 700 * e);
-    ctx.fillText("书院: " + house, 110 * e, 800 * e);
+    ctx.fillText("" + house + '书院', 105 * e, 865 * e);
 
-    if (avator_b64 != "") {
+    if (avator_b64 != "" && avator_b64 != null) {
+        avator.src = avator_b64;
         var angle = -20;
         var x = -340;
         var y = 1250;
         var final_avator_width = 300;
         var rad = (Math.PI / 180) * angle;
         ctx.rotate(rad);
-        ctx.drawImage(avator, x * e, (y - final_avator_width / avator_w * avator_h) * e, final_avator_width * e, final_avator_width / avator_w * avator_h * e);
+        // console.log(avator)
+        setTimeout(()=>{
+            ctx.drawImage(avator, x * e, (y - final_avator_width / avator_w * avator_h) * e, final_avator_width * e, final_avator_width / avator_w * avator_h * e);
+        }, 150)
         ctx.rotate(-rad);
     }
 
@@ -62,5 +69,6 @@ setInterval(() => {
     ctx.font = e * font_size + "px 微软雅黑";
     ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
     ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
-
-}, 300)
+}
+drawImage()
+window.onresize = ()=>{drawImage()}

@@ -1,3 +1,6 @@
+* {
+    --accent: #556fac
+}
 body {
     margin: 0px;
     padding: 0px;
@@ -10,4 +13,17 @@ body {
 
 #invitation{
     border-radius: 5px;
+}
+.card{
+    box-sizing: border-box;
+    padding: 8px 10px;
+    background-color: var(--accent);
+    color: white;
+    border-radius: 5px;
+}
+
+#info{
+    position: absolute;
+    top: 5px;
+    background: black;
 }

@@ -18,8 +18,20 @@ function submit() {
     var house = hosue_el.value;
     if (name == "" || house == "请选择书院") {
         alert("信息填写不完整");
+        return
     }
     localStorage.setItem("name", name);
     localStorage.setItem("house", house);
     window.location = "./print.html";
+}
+
+document.querySelector('#input-file').onchange = ()=>{
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        document.querySelector('#avatar-img').src = e.target.result
+        document.querySelector('#avatar-img').removeAttribute('hidden')
+        // localStorage.setItem('avator', e.target.result);
+
+    }
+    reader.readAsDataURL(document.querySelector('#input-file').files[0]);
 }

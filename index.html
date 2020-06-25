@@ -34,12 +34,14 @@
                 <label for="upload">头像</label>
                 <button type="button" id="upload" class="pure-button" onclick="document.querySelector('#input-file').click()">上传头像</button>
                 <span style="margin-left: 10px;background-color: var(--accent);">上传了XXXX</span>
-                <input type="file" name="upload" id="input-file" accept="image/*" hidden>
+                <input type="file" name="upload" id="input-file" accept="image/*" hidden><br>
+                <img src="" alt="" id="avatar-img" width="150" height="auto" style="margin-top: 8px;border: 2.4px white solid;border-radius: 5px;" hidden>
                 <!-- <img src="#" alt="" id="preview"> -->
             </fieldset>
             <!-- <button type="submit" class="pure-button pure-button-primary">确认</button> -->
         </form>
         <div class="pure-button" id="submit-btn" onclick="submit()">生成邀请函</div>
+
     </section>
 </body>
 <script src="./js/main.js"></script>
