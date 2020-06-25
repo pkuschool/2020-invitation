@@ -23,7 +23,7 @@ function circleImg(ctx, img, x, y, r) {
     ctx.restore();
 }
 
-function drawImage(){
+function drawImage() {
     var smooth = 3;
     // console.log(avator)
     var height = (window.innerHeight - 20) / 1920;
@@ -66,7 +66,7 @@ function drawImage(){
         var final_avator_width = 350;
         var rad = (Math.PI / 180) * angle;
         ctx.rotate(rad);
-        circleImg(ctx, avator, x * e, ((y - final_avator_width / avator_w * avator_h) * e), (final_avator_width * e / 2));
+        circleImg(ctx, avator, x * e, ((y - (final_avator_width * e / 2)) * e), (final_avator_width * e / 2));
         // ctx.drawImage(avator, x * e, (y - final_avator_width / avator_w * avator_h) * e, final_avator_width * e, final_avator_width / avator_w * avator_h * e);
         ctx.rotate(-rad);
     }
@@ -77,12 +77,10 @@ function drawImage(){
     ctx.font = e * font_size + "px 'undef'";
     // ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
     // ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
-    document.querySelector('#output').src = document.querySelector('canvas').toDataURL()
-    document.querySelector('#output').setAttribute('style', document.querySelector('canvas').getAttribute('style'))
 }
-setTimeout(()=>{
+setTimeout(() => {
     drawImage()
-},500)
+}, 500)
 window.onresize = () => {
     setTimeout(() => {
         drawImage()
