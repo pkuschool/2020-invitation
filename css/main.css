@@ -4,6 +4,10 @@ body{
 *{
     --accent: #556fac
 }
+@font-face {
+    font-family: 'regular-font';
+    src: url('../drawfont.ttf') format('truetype');
+}
 #form{
     background-color: var(--accent);
     color: white;
