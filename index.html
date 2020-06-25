@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./main.css">
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/pure/2.0.3/pure.min.css">
+    <link rel="stylesheet" href="./main.css">
     <title>2020届毕业典礼 · 邀请函</title>
 </head>
 <body>
@@ -29,10 +29,15 @@
                     <option>新民</option>
                     <option>熙敬</option>
                 </select>
-                <div class="pure-button" id="submit-btn">确认生成邀请函</div>
+                <!-- <div class="pure-button" href="#" class="pure-input-1">上传图片</div> -->
+                <label for="upload">头像</label>
+                <button type="button" id="upload" class="pure-button" onclick="document.querySelector('#input-file').click()">上传头像</button>
+                <span style="margin-left: 10px;background-color: var(--accent);">上传了XXXX</span>
+                <input type="file" name="upload" id="input-file" hidden>
             </fieldset>
             <!-- <button type="submit" class="pure-button pure-button-primary">确认</button> -->
         </form>
+        <div class="pure-button" id="submit-btn">生成邀请函</div>
     </section>
 </body>
 </html>

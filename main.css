@@ -16,21 +16,34 @@ body{
     background-position: left center;
     background-repeat: no-repeat;
 }
-div#submit-btn{
-    /* position: absolute;
-    bottom: 9%;
-    right: 9%; */
-    margin-top: 15px;
+#upload{
+    /* margin-top: 15px; */
     border: 2.4px white solid;
+    color: white;
+    background: var(--accent) !important;
+    /* font-weight: bold; */
+    border-radius: 5px;
+}
+div#submit-btn{
+    position: absolute;
+    bottom: 9%;
+    right: 9%;
+    left: 9%;
+    margin-top: 35px;
+    border: 3px white solid;
     /* color: white; */
     background: #f2c959 !important;
+    font-size: 24px;
     font-weight: bold;
     border-radius: 5px;
 }
 #form-main{
     position: absolute;
-    top: 33%;
+    top: 31%;
     left: 9%;
+}
+label{
+    margin-top: 12px !important;
 }
 section{
     height: 100vh;
