@@ -40,7 +40,7 @@ function drawImage(){
     inv_el.style.width = width / smooth + "px";
     //
     var ctx = inv_el.getContext("2d");
-    var img = new Image();
+    let img = new Image();
     img.src = './img/background.jpg';
     ctx.drawImage(img, 0, 0, width, height);
 
@@ -54,9 +54,9 @@ function drawImage(){
     gradient.addColorStop("1.0", "white");
     ctx.fillStyle = gradient;
     ctx.font = e * 150 + "px 'regular-font'";
-    ctx.fillText("" + name, 105 * e, 735 * e);
+    ctx.fillText("" + name, 100 * e, 735 * e);
     ctx.font = e * 70 + "px 'regular-font'";
-    ctx.fillText("" + house + '书院', 105 * e, 865 * e);
+    ctx.fillText("" + house + '书院', 100 * e, 860 * e);
 
     if (avator_b64 != "" && avator_b64 != null) {
         avator.src = avator_b64;
@@ -80,9 +80,9 @@ function drawImage(){
 }
 setTimeout(()=>{
     drawImage()
-},100)
+},500)
 window.onresize = () => {
     setTimeout(() => {
         drawImage()
-    }, 100)
+    }, 300)
 }
