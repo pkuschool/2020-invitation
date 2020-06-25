@@ -34,6 +34,7 @@ document.querySelector('#input-file').onchange = ()=>{
     reader.onload = function(e) {
         document.querySelector('#avatar-img').src = e.target.result
         document.querySelector('#avatar-img').removeAttribute('hidden')
+        document.querySelector('#filename-indicator').innerHTML = document.querySelector('#input-file').files[0].name
         // localStorage.setItem('avator', e.target.result);
 
     }
