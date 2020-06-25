@@ -33,10 +33,10 @@ setInterval(() => {
 
     var name = localStorage.getItem('name');
     var house = localStorage.getItem('house');
-    // if(name===null||house===null)
-    // {
-    //     window.location="/"
-    // }
+    if(name===null||house===null)
+    {
+        window.location="/"
+    }
 
     var gradient = ctx.createLinearGradient(0, 0, width, 0);
     gradient.addColorStop("1.0", "white");
