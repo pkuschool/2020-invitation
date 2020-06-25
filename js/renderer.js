@@ -12,9 +12,16 @@ if (avator_b64 != "" && avator_b64 != null) {
 console.log(avator.src.length)
 window.onload = () => {
     // console.log(avator_b64)
-    setTimeout(() => {
-        drawImage()
-    }, 500)
+    var hint_el=document.querySelector('#info');
+    setTimeout(()=>{
+        // console.log("get");
+        hint_el.style["margin-top"]="10px";
+    },800);
+    drawImage()
+    setTimeout(()=>{
+        // console.log("get");
+        hint_el.style["margin-top"]="-50px";
+    },5000);
 }
 
 
@@ -39,11 +46,15 @@ function drawImage() {
     width = e * 1081;
 
     var inv_el = document.querySelector('#invitation');
+    var output_el = document.querySelector('#output');
     inv_el.height = height;
     inv_el.width = width;
 
     inv_el.style.height = height / smooth + "px";
     inv_el.style.width = width / smooth + "px";
+    output_el.style.height = height / smooth + "px";
+    output_el.style.width = width / smooth + "px";
+
     //
     var ctx = inv_el.getContext("2d");
     let img = new Image();
@@ -67,12 +78,12 @@ function drawImage() {
     if (avator_b64 != "" && avator_b64 != null) {
         avator.src = avator_b64;
         var angle = -20;
-        var x = -370;
+        var x = -365;
         var y = 1270;
         var final_avator_width = 350;
         var rad = (Math.PI / 180) * angle;
         ctx.rotate(rad);
-        circleImg(ctx, avator, x * e, ((y - (final_avator_width * e / 2)) * e), (final_avator_width * e / 2));
+        circleImg(ctx, avator, x * e, ((y - (final_avator_width * e/1.15)) * e), (final_avator_width * e / 2));
         // ctx.drawImage(avator, x * e, (y - final_avator_width / avator_w * avator_h) * e, final_avator_width * e, final_avator_width / avator_w * avator_h * e);
         ctx.rotate(-rad);
     }
@@ -81,6 +92,8 @@ function drawImage() {
     var top_dis = 1700;
     var font_size = 50;
     ctx.font = e * font_size + "px 'undef'";
+    var b64 = inv_el.toDataURL('image/png');
+    output_el.src = b64;
     // ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
     // ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
 }
