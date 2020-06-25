@@ -50,6 +50,8 @@ section{
     width: 100vw;
     padding: 20px 18px;
     position: relative;
+    max-width: 700px;
+    margin: 0 auto;
 }
 [hidden]{
     display: none;
