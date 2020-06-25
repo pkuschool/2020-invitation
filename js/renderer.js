@@ -12,16 +12,16 @@ if (avator_b64 != "" && avator_b64 != null) {
 console.log(avator.src.length)
 window.onload = () => {
     // console.log(avator_b64)
-    var hint_el=document.querySelector('#info');
-    setTimeout(()=>{
+    var hint_el = document.querySelector('#info');
+    setTimeout(() => {
         // console.log("get");
-        hint_el.style["margin-top"]="10px";
-    },500);
+        hint_el.style["margin-top"] = "10px";
+    }, 500);
     drawImage()
-    setTimeout(()=>{
+    setTimeout(() => {
         // console.log("get");
-        hint_el.style["margin-top"]="-50px";
-    },5000);
+        hint_el.style["margin-top"] = "-50px";
+    }, 5000);
 }
 
 
@@ -78,12 +78,12 @@ function drawImage() {
     if (avator_b64 != "" && avator_b64 != null) {
         avator.src = avator_b64;
         var angle = -20;
-        var x = -365;
-        var y = 1270;
+        var x = -350;
+        var y = 928;
         var final_avator_width = 350;
         var rad = (Math.PI / 180) * angle;
         ctx.rotate(rad);
-        circleImg(ctx, avator, x * e, ((y - (final_avator_width * e/1.15)) * e), (final_avator_width * e / 2));
+        circleImg(ctx, avator, x * e, y * e, (final_avator_width * e / 2));
         // ctx.drawImage(avator, x * e, (y - final_avator_width / avator_w * avator_h) * e, final_avator_width * e, final_avator_width / avator_w * avator_h * e);
         ctx.rotate(-rad);
     }
