@@ -21,7 +21,7 @@ window.onload = () => {
     setTimeout(()=>{
         // console.log("get");
         hint_el.style["margin-top"]="-50px";
-    },8000);
+    },5000);
 }
 
 
@@ -58,7 +58,7 @@ function drawImage() {
     //
     var ctx = inv_el.getContext("2d");
     let img = new Image();
-    img.src = 'https://s1.ax1x.com/2020/06/25/NDGRpj.jpg';
+    img.src = './img/background.jpg';
     ctx.drawImage(img, 0, 0, width, height);
 
     var name = localStorage.getItem('name');
