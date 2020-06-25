@@ -19,7 +19,8 @@
                 <label for="stacked-name">姓名</label>
                 <input type="text" id="stacked-name" class="pure-input-1" placeholder="姓名" />
                 <label for="stacked-house">书院</label>
-                <select id="stacked-house" class="pure-input-1">
+                <select id="stacked-house" class="pure-input-1" style="height:2.5em">
+                    <option>请选择书院</option>
                     <option>格物</option>
                     <option>致知</option>
                     <option>诚意</option>
@@ -33,8 +34,8 @@
                 <label for="upload">头像</label>
                 <button type="button" id="upload" class="pure-button" onclick="document.querySelector('#input-file').click()">上传头像</button>
                 <span style="margin-left: 10px;background-color: var(--accent);">上传了XXXX</span>
-                <input type="file" name="upload" id="input-file" hidden>
-                <img src="#" alt="" id="preview">
+                <input type="file" name="upload" id="input-file" accept=".jpg,.png.,.jpeg" hidden>
+                <!-- <img src="#" alt="" id="preview"> -->
             </fieldset>
             <!-- <button type="submit" class="pure-button pure-button-primary">确认</button> -->
         </form>
