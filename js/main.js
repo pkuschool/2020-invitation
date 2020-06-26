@@ -35,10 +35,19 @@ function submit() {
 
 var cutting_tool;
 var ctx;
+var low_fps_counter=0;
+var low_fps=2;
 
 function preview(c) {
     // console.log(c);
-
+    if(low_fps_counter<=low_fps)
+    {
+        low_fps_counter++;
+        return;
+    }
+    else{
+        low_fps_counter=0;
+    }
     var e = document.querySelector('#target');
     var be_cut_img = new Image()
     be_cut_img.src = document.querySelector('#avatar-img').src;
