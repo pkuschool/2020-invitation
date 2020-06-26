@@ -81,6 +81,7 @@ img {
 }
 
 .file-hint {
+    transition: background-color 0.15s;
     color: #ffffff;
     background-color: #5171c4;
     font-weight: bold;
@@ -90,7 +91,7 @@ img {
 }
 
 .file-hint:hover {
-    background-color: #354b81 !important;
+    background-color: #162958 !important;
 }
 
 .card {
