@@ -102,12 +102,12 @@ img {
     border-radius: 5px;
 }
 
-.shadow{
+.shadow {
     z-index: 9;
     position: absolute;
-    left:0px;
-    right:0px;
-    top:0px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
     bottom: 0px;
     background-color: rgba(0, 0, 0, 0.67);
 }
@@ -118,26 +118,26 @@ img {
     top: 50px;
     left: 20%;
     right: 20%;
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
 }
 
-#target{
-    width:80%;
-    height:auto;
-    margin-top:20px;
-    margin-bottom:20px;
+#target {
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-#preview{
+#preview {
     margin-top: 10px;
-    width:40%;
-    height:auto;
-    margin-bottom:20px;
+    width: 40%;
+    height: auto;
+    margin-bottom: 20px;
 }
 
-.cut_ctrl{
+.cut_ctrl {
     margin-bottom: 40px;
 }
