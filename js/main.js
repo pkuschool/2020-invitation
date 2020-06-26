@@ -54,7 +54,7 @@ function preview(c) {
         ctx.drawImage(be_cut_img, -(c.x / h * rh), -(c.y / w * rw));
         var b64 = cutting_tool.toDataURL('image/png');
         document.querySelector('#preview').src = b64;
-    }, 50)
+    }, 100)
 }
 
 
