@@ -11,6 +11,8 @@ window.onload = () => {
             console.log('1')
             drawImage()
         }
+    }else{
+        drawImage()
     }
     console.log(avatar.src.length)
     // console.log(avatar_b64)
