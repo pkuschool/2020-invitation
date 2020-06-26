@@ -1,7 +1,7 @@
 var avatar_w;
 var avatar_h;
 var avatar = new Image();
-var avatar_b64 = localStorage.getItem('avatar');
+var avatar_b64 = localStorage.avatar;
 if (avatar_b64 != "" && avatar_b64 != null) {
     avatar.src = avatar_b64;
     avatar.onload = () => {
