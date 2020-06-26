@@ -84,7 +84,7 @@ function drawImage() {
         if (avatar_b64 != "" && avatar_b64 != null) {
             // avatar.src = avatar_b64;
             var angle = -20;
-            var x = -350;
+            var x = -360;
             var y = 928;
             var final_avatar_width = 350;
             var rad = (Math.PI / 180) * angle;

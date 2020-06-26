@@ -1,14 +1,17 @@
-body{
+body {
     margin: 0;
 }
-*{
+
+* {
     --accent: #556fac
 }
+
 @font-face {
     font-family: 'regular-font';
     src: url('../font/drawfont.ttf') format('truetype');
 }
-#form{
+
+#form {
     background-color: var(--accent);
     color: white;
     box-sizing: border-box;
@@ -19,8 +22,12 @@ body{
     background-size: contain;
     background-position: left center;
     background-repeat: no-repeat;
+    /* display:flex;
+    align-items: flex-end;
+    justify-content: center; */
 }
-#upload{
+
+#upload {
     /* margin-top: 15px; */
     border: 2.4px white solid;
     color: white;
@@ -28,11 +35,15 @@ body{
     /* font-weight: bold; */
     border-radius: 5px;
 }
-div#submit-btn{
+
+div#submit-btn {
     position: absolute;
     bottom: 9%;
     right: 9%;
     left: 9%;
+    /* height:60px;
+    min-width: 80%; */
+    margin-bottom: 10%;
     margin-top: 35px;
     border: 3px white solid;
     /* color: white; */
@@ -41,15 +52,18 @@ div#submit-btn{
     font-weight: bold;
     border-radius: 5px;
 }
-#form-main{
+
+#form-main {
     position: absolute;
     top: 31%;
     left: 9%;
 }
-label{
+
+label {
     margin-top: 12px !important;
 }
-section{
+
+section {
     height: 100vh;
     width: 100vw;
     padding: 20px 18px;
@@ -57,9 +71,24 @@ section{
     max-width: 700px;
     margin: 0 auto;
 }
-[hidden]{
+
+[hidden] {
     display: none;
 }
-img{
+
+img {
     max-width: 100vw;
+}
+
+.file-hint {
+    color: #ffffff;
+    background-color: #5171c4;
+    font-weight: bold;
+    padding: 6px 8px;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+}
+
+.file-hint:hover {
+    background-color: #354b81 !important;
 }

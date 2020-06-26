@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <title>2020届毕业典礼 · 邀请函</title>
 </head>
+
 <body>
     <section hidden>
         <img src="./img/background.jpg" alt="">
@@ -37,10 +39,12 @@
                 </select>
                 <!-- <div class="pure-button" href="#" class="pure-input-1">上传图片</div> -->
                 <label for="upload">头像</label>
-                <button type="button" id="upload" class="pure-button" onclick="document.querySelector('#input-file').click()">上传头像</button>
-                <span style="color:#ffffff;background-color: var(--accent);font-weight:bold;padding: 6px 8px;border-radius: 3px;">大小不能超过 5 MB</span>
+                <button type="button" id="upload" class="pure-button"
+                    onclick="document.querySelector('#input-file').click()">上传头像</button>
+                <span class="file-hint" onclick="document.querySelector('#input-file').click()">大小不能超过 5 MB</span>
                 <input type="file" name="upload" id="input-file" accept="image/*" hidden><br>
-                <img src="" alt="" id="avatar-img" height="50" width="auto" style="margin-top: 8px;border: 2.4px white solid;border-radius: 5px;" hidden>
+                <img src="" alt="" id="avatar-img" height="30" width="auto"
+                    style="margin-top: 8px;border: 2.4px white solid;border-radius: 5px;" hidden>
                 <!-- <img src="#" alt="" id="preview"> -->
             </fieldset>
             <!-- <button type="submit" class="pure-button pure-button-primary">确认</button> -->
@@ -50,4 +54,5 @@
     </section>
 </body>
 <script src="./js/main.js"></script>
+
 </html>
