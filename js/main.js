@@ -36,10 +36,11 @@ function submit() {
 var cutting_tool;
 var ctx;
 let changeCount = 0
+let currentWaitTimeout = 0
 function preview(c) {
     // console.log(c);
-    changeCount++
-    if(changeCount % 3 == 1){
+    clearTimeout(currentWaitTimeout)
+    currentWaitTimeout = setTimeout(()=>{
         document.querySelector('#cut_confirm').innerHTML = '确认'
         var e = document.querySelector('#target');
         var be_cut_img = new Image()
@@ -53,7 +54,7 @@ function preview(c) {
         ctx.drawImage(be_cut_img, -(c.x / h * rh), -(c.y / w * rw));
         var b64 = cutting_tool.toDataURL('image/png');
         document.querySelector('#preview').src = b64;
-    }
+    }, 50)
 }
 
 
