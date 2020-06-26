@@ -21,7 +21,7 @@ window.onload = () => {
     setTimeout(() => {
         // console.log("get");
         hint_el.style["margin-top"] = "-50px";
-    }, 5000);
+    }, 10000);
 }
 
 
