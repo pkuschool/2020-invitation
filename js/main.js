@@ -13,9 +13,9 @@ function submit() {
         localStorage.setItem("name", name);
         localStorage.setItem("house", house);
         console.log(preview_el.src)
+        alert(preview.src.length)
         if (preview_el.src != "" && preview_el.src != location.href) {
             localStorage.avatar = preview_el.src;
-            alert(localStorage.avatar.length + ' '+preview.src.length)
             window.open('./print.html', '_self')
             // var avatar = avatar_el.files[0];
             // var reader = new FileReader();
