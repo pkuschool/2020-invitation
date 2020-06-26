@@ -163,3 +163,11 @@ img {
 .cut_ctrl{
     /* margin-bottom: 40px; */
 }
+#subit{
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    font-size: 14px;
+    opacity: 0.6;
+    font-weight: bold;
+}
