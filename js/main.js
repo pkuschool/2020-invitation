@@ -39,7 +39,7 @@ let changeCount = 0
 function preview(c) {
     // console.log(c);
     changeCount++
-    if(changeCount % 5 == 1){
+    if(changeCount % 2 == 1){
         document.querySelector('#cut_confirm').innerHTML = '确认'
         var e = document.querySelector('#target');
         var be_cut_img = new Image()
