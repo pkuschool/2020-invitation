@@ -12,9 +12,10 @@ function submit() {
     }else{
         localStorage.setItem("name", name);
         localStorage.setItem("house", house);
-        console.log(preview_el.src)
+        console.log(preview_el.src.length)
         // alert(preview_el.src.length)
         if (preview_el.src != "" && preview_el.src != location.href) {
+
             localStorage.avatar = preview_el.src;
             window.open('./print.html', '_self')
             // var avatar = avatar_el.files[0];
@@ -41,6 +42,9 @@ document.querySelector('#input-file').onchange = () => {
     reader.onload = function (e) {
         document.querySelector('#avatar-img').src = e.target.result
         document.querySelector('#avatar-img').removeAttribute('hidden')
+        if (e.target.result.length >= 4750000) {
+            alert('图片过大，可能无法正确生成！')
+        }
         // document.querySelector('#filename-indicator').innerHTML = document.querySelector('#input-file').files[0].name
         // localStorage.setItem('avatar', e.target.result);
 

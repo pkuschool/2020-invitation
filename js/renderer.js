@@ -7,6 +7,7 @@ if (avatar_b64 != "" && avatar_b64 != null) {
     avatar.onload = () => {
         avatar_h = avatar.height;
         avatar_w = avatar.width;
+        drawImage()
     }
 }
 console.log(avatar.src.length)
@@ -17,7 +18,7 @@ window.onload = () => {
         // console.log("get");
         hint_el.style["margin-top"] = "10px";
     }, 500);
-    drawImage()
+
     setTimeout(() => {
         // console.log("get");
         hint_el.style["margin-top"] = "-50px";
@@ -58,44 +59,48 @@ function drawImage() {
     //
     var ctx = inv_el.getContext("2d");
     let img = new Image();
+
+    // console.log('loaded')
+    img.onload = ()=>{
+        ctx.drawImage(img, 0, 0, width, height);
+
+        var name = localStorage.getItem('name');
+        var house = localStorage.getItem('house');
+        if (name === null || house === null) {
+            window.location = "./"
+        }
+
+        var gradient = ctx.createLinearGradient(0, 0, width, 0);
+        gradient.addColorStop("1.0", "white");
+        ctx.fillStyle = gradient;
+        ctx.font = e * 150 + "px 'regular-font'";
+        ctx.fillText("" + name, 100 * e, 735 * e);
+        ctx.font = e * 70 + "px 'regular-font'";
+        ctx.fillText("" + house + (["预科部","教师","家长"].indexOf(house)!=-1?'':'书院'), 100 * e, 860 * e);
+
+        if (avatar_b64 != "" && avatar_b64 != null) {
+            avatar.src = avatar_b64;
+            var angle = -20;
+            var x = -350;
+            var y = 928;
+            var final_avatar_width = 350;
+            var rad = (Math.PI / 180) * angle;
+            ctx.rotate(rad);
+            circleImg(ctx, avatar, x * e, y * e, (final_avatar_width * e / 2));
+            // ctx.drawImage(avatar, x * e, (y - final_avatar_width / avatar_w * avatar_h) * e, final_avatar_width * e, final_avatar_width / avatar_w * avatar_h * e);
+            ctx.rotate(-rad);
+        }
+
+        var left_dis = 700;
+        var top_dis = 1700;
+        var font_size = 50;
+        ctx.font = e * font_size + "px 'undef'";
+        var b64 = inv_el.toDataURL('image/png');
+        output_el.src = b64;
+        // ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
+        // ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
+    }
     img.src = './img/background.jpg';
-    ctx.drawImage(img, 0, 0, width, height);
-
-    var name = localStorage.getItem('name');
-    var house = localStorage.getItem('house');
-    if (name === null || house === null) {
-        window.location = "./"
-    }
-
-    var gradient = ctx.createLinearGradient(0, 0, width, 0);
-    gradient.addColorStop("1.0", "white");
-    ctx.fillStyle = gradient;
-    ctx.font = e * 150 + "px 'regular-font'";
-    ctx.fillText("" + name, 100 * e, 735 * e);
-    ctx.font = e * 70 + "px 'regular-font'";
-    ctx.fillText("" + house + (["预科部","教师","家长"].indexOf(house)!=-1?'':'书院'), 100 * e, 860 * e);
-
-    if (avatar_b64 != "" && avatar_b64 != null) {
-        avatar.src = avatar_b64;
-        var angle = -20;
-        var x = -350;
-        var y = 928;
-        var final_avatar_width = 350;
-        var rad = (Math.PI / 180) * angle;
-        ctx.rotate(rad);
-        circleImg(ctx, avatar, x * e, y * e, (final_avatar_width * e / 2));
-        // ctx.drawImage(avatar, x * e, (y - final_avatar_width / avatar_w * avatar_h) * e, final_avatar_width * e, final_avatar_width / avatar_w * avatar_h * e);
-        ctx.rotate(-rad);
-    }
-
-    var left_dis = 700;
-    var top_dis = 1700;
-    var font_size = 50;
-    ctx.font = e * font_size + "px 'undef'";
-    var b64 = inv_el.toDataURL('image/png');
-    output_el.src = b64;
-    // ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
-    // ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
 }
 
 window.onresize = () => {
