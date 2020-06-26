@@ -39,7 +39,7 @@ let changeCount = 0
 function preview(c) {
     // console.log(c);
     changeCount++
-    if(changeCount % 2 == 1){
+    if(changeCount % 3 == 1){
         document.querySelector('#cut_confirm').innerHTML = '确认'
         var e = document.querySelector('#target');
         var be_cut_img = new Image()
@@ -79,7 +79,6 @@ document.querySelector('#input-file').onchange = () => {
             jcrop_api = $.Jcrop('#target', {
                 onChange: preview,
                 onSelect: preview,
-                // boxWidth: '100%',
                 aspectRatio: 1 / 1
             });
         }
