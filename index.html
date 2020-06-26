@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/pure/2.0.3/pure.min.css">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/jquery.Jcrop.css">
     <link rel='preload' as="font" href="./font/drawfont.ttf">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <title>2020届毕业典礼 · 邀请函</title>
@@ -52,7 +53,19 @@
         <div class="pure-button" id="submit-btn" onclick="submit()">生成邀请函</div>
 
     </section>
+    <div class="card preview-area" hidden>
+        <img src="#" id="target">
+        <canvas id="tool" hidden></canvas>
+        <img src="#" id="preview">
+        <div class="ctrl-area">
+            <div class="pure-button cut_ctrl" id="cut_cancel" onclick="cut_cancel()">取消</div>
+            <div class="pure-button cut_ctrl" id="cut_confirm" onclick="cut_confirm()">确定裁剪</div>
+        </div>
+    </div>
+    <div class="shadow" hidden></div>
 </body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="./js/jquery.Jcrop.min.js"></script>
 <script src="./js/main.js"></script>
 
 </html>
