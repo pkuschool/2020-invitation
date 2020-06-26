@@ -85,7 +85,7 @@ document.querySelector('#input-file').onchange = () => {
             jcrop_api = $.Jcrop('#target', {
                 onChange: preview,
                 onSelect: preview,
-
+                // boxWidth: '100%',
                 aspectRatio: 1 / 1
             });
         }
