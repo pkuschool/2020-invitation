@@ -33,8 +33,24 @@ function submit() {
     }
 }
 
+var cutting_tool;
+var ctx;
+
 function preview(c) {
-    console.log(c);
+    // console.log(c);
+    
+    var e = document.querySelector('#target');
+    var be_cut_img = new Image()
+    be_cut_img.src = document.querySelector('#avatar-img').src;
+    var rh=be_cut_img.height;
+    var rw=be_cut_img.width;
+    var w=parseInt(e.style.width.split("px")[0])
+    var h=parseInt(e.style.height.split("px")[0])
+    cutting_tool.height = c.h/h*rh;
+    cutting_tool.width = c.w/w*rw;
+    ctx.drawImage(be_cut_img, -(c.x/h*rh), -(c.y/w*rw));
+    var b64 = cutting_tool.toDataURL('image/png');
+    document.querySelector('#preview').src = b64;
 }
 
 
@@ -52,6 +68,8 @@ document.querySelector('#input-file').onchange = () => {
         if (e.target.result.length >= 4750000) {
             alert('图片过大，可能无法正确生成！')
         }
+        cutting_tool = document.querySelector('#tool');
+        ctx = cutting_tool.getContext("2d");
         document.querySelector('.preview-area').removeAttribute('hidden');
         document.querySelector('.shadow').removeAttribute('hidden');
         document.querySelector('#target').onload = () => {
@@ -70,13 +88,18 @@ document.querySelector('#input-file').onchange = () => {
 }
 
 function cut_confirm() {
-
+    jcrop_api.destroy();
+    document.querySelector('#target').style = "";
+    document.querySelector('#input-file').value = "";
+    document.querySelector('#avatar-img').src = document.querySelector('#preview').src;
+    document.querySelector('.shadow').setAttribute('hidden', '');
+    document.querySelector('.preview-area').setAttribute('hidden', '');
 }
 
 function cut_cancel() {
     jcrop_api.destroy();
-    document.querySelector('#target').style="";
-    document.querySelector('#input-file').value="";
+    document.querySelector('#target').style = "";
+    document.querySelector('#input-file').value = "";
     document.querySelector('#avatar-img').setAttribute('hidden', '');
     document.querySelector('#avatar-img').src = "#";
     document.querySelector('.shadow').setAttribute('hidden', '');
