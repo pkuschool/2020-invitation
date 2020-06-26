@@ -34,7 +34,7 @@ function submit() {
 }
 
 function preview(c) {
-    console.log(c);
+    // console.log(c);
 }
 
 
@@ -49,16 +49,16 @@ document.querySelector('#input-file').onchange = () => {
         }
         document.querySelector('#target').src = e.target.result;
         document.querySelector('#preview').src = e.target.result;
-        if (e.target.result.length >= 4750000) {
-            alert('图片过大，可能无法正确生成！')
-        }
+        // if (e.target.result.length >= 4750000) {
+        //     alert('图片过大，可能无法正确生成！')
+        // }
         document.querySelector('.preview-area').removeAttribute('hidden');
         document.querySelector('.shadow').removeAttribute('hidden');
         document.querySelector('#target').onload = () => {
             jcrop_api = $.Jcrop('#target', {
                 onChange: preview,
                 onSelect: preview,
-
+                // boxWidth: '100%',
                 aspectRatio: 1 / 1
             });
         }
