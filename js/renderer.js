@@ -1,17 +1,17 @@
-var avator_w;
-var avator_h;
-var avator = new Image();
-var avator_b64 = localStorage.getItem('avator');
-if (avator_b64 != "" && avator_b64 != null) {
-    avator.src = avator_b64;
-    avator.onload = () => {
-        avator_h = avator.height;
-        avator_w = avator.width;
+var avatar_w;
+var avatar_h;
+var avatar = new Image();
+var avatar_b64 = localStorage.getItem('avatar');
+if (avatar_b64 != "" && avatar_b64 != null) {
+    avatar.src = avatar_b64;
+    avatar.onload = () => {
+        avatar_h = avatar.height;
+        avatar_w = avatar.width;
     }
 }
-console.log(avator.src.length)
+console.log(avatar.src.length)
 window.onload = () => {
-    // console.log(avator_b64)
+    // console.log(avatar_b64)
     var hint_el = document.querySelector('#info');
     setTimeout(() => {
         // console.log("get");
@@ -38,7 +38,7 @@ function circleImg(ctx, img, x, y, r) {
 
 function drawImage() {
     var smooth = 3;
-    // console.log(avator)
+    // console.log(avatar)
     var height = (window.innerHeight - 20) / 1920;
     var width = (window.innerWidth - 20) / 1081;
     var e = Math.min(height, width) * smooth;
@@ -75,16 +75,16 @@ function drawImage() {
     ctx.font = e * 70 + "px 'regular-font'";
     ctx.fillText("" + house + (["预科部","教师","家长"].indexOf(house)!=-1?'':'书院'), 100 * e, 860 * e);
 
-    if (avator_b64 != "" && avator_b64 != null) {
-        avator.src = avator_b64;
+    if (avatar_b64 != "" && avatar_b64 != null) {
+        avatar.src = avatar_b64;
         var angle = -20;
         var x = -350;
         var y = 928;
-        var final_avator_width = 350;
+        var final_avatar_width = 350;
         var rad = (Math.PI / 180) * angle;
         ctx.rotate(rad);
-        circleImg(ctx, avator, x * e, y * e, (final_avator_width * e / 2));
-        // ctx.drawImage(avator, x * e, (y - final_avator_width / avator_w * avator_h) * e, final_avator_width * e, final_avator_width / avator_w * avator_h * e);
+        circleImg(ctx, avatar, x * e, y * e, (final_avatar_width * e / 2));
+        // ctx.drawImage(avatar, x * e, (y - final_avatar_width / avatar_w * avatar_h) * e, final_avatar_width * e, final_avatar_width / avatar_w * avatar_h * e);
         ctx.rotate(-rad);
     }
 

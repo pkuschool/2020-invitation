@@ -1,27 +1,31 @@
+
 function submit() {
     var name_el = document.querySelector('#stacked-name');
-    var hosue_el = document.querySelector('#stacked-house');
-    var avator_el = document.querySelector('#input-file');
-    var preview_el = document.querySelector('#preview');
+    var house_el = document.querySelector('#stacked-house');
+    var avatar_el = document.querySelector('#input-file');
+    var preview_el = document.querySelector('#avatar-img');
     var name = name_el.value;
-    var house = hosue_el.value;
+    var house = house_el.value;
     if (name == "" || house == "请选择书院") {
         alert("信息填写不完整");
         return
     }else{
         localStorage.setItem("name", name);
         localStorage.setItem("house", house);
-        if (avator_el.value != "") {
-            var avator = avator_el.files[0];
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                // preview_el.src = e.target.result;
-                localStorage.setItem('avator', e.target.result);
-                window.open('./print.html', '_self')
-            }
-            reader.readAsDataURL(avator);
+        console.log(preview_el.src)
+        if (preview_el.src != "" && preview_el.src != location.href) {
+            localStorage.avatar = preview_el.src;
+            window.open('./print.html', '_self')
+            // var avatar = avatar_el.files[0];
+            // var reader = new FileReader();
+            // reader.onload = function (e) {
+                //     localStorage.avatar=e.target.result;
+                //     window.open('./print.html', '_self')
+            //     // preview_el.src = e.target.result;
+            // }
+            reader.readAsDataURL(avatar);
         } else {
-            localStorage.setItem("avator", "");
+            localStorage.setItem("avatar", "");
             window.open('./print.html', '_self')
         }
         // window.location = "./print.html";
@@ -36,8 +40,8 @@ document.querySelector('#input-file').onchange = () => {
     reader.onload = function (e) {
         document.querySelector('#avatar-img').src = e.target.result
         document.querySelector('#avatar-img').removeAttribute('hidden')
-        document.querySelector('#filename-indicator').innerHTML = document.querySelector('#input-file').files[0].name
-        // localStorage.setItem('avator', e.target.result);
+        // document.querySelector('#filename-indicator').innerHTML = document.querySelector('#input-file').files[0].name
+        // localStorage.setItem('avatar', e.target.result);
 
     }
     reader.readAsDataURL(document.querySelector('#input-file').files[0]);

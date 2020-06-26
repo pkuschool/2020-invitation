@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/pure/2.0.3/pure.min.css">
     <link rel="stylesheet" href="./css/main.css">
-    <link rel='preload' href="./drawfont.ttf">
+    <link rel='preload' as="font" href="./font/drawfont.ttf">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <title>2020届毕业典礼 · 邀请函</title>
 </head>
@@ -38,7 +38,7 @@
                 <!-- <div class="pure-button" href="#" class="pure-input-1">上传图片</div> -->
                 <label for="upload">头像</label>
                 <button type="button" id="upload" class="pure-button" onclick="document.querySelector('#input-file').click()">上传头像</button>
-                <span style="margin-left: 10px;color:#ffffff;background-color: var(--accent);font-weight:bold;padding: 6px 8px;border-radius: 3px;" id="filename-indicator">等待上传</span>
+                <!-- <span style="margin-left: 10px;color:#ffffff;background-color: var(--accent);font-weight:bold;padding: 6px 8px;border-radius: 3px;" id="filename-indicator">等待上传</span> -->
                 <input type="file" name="upload" id="input-file" accept="image/*" hidden><br>
                 <img src="" alt="" id="avatar-img" height="50" width="auto" style="margin-top: 8px;border: 2.4px white solid;border-radius: 5px;" hidden>
                 <!-- <img src="#" alt="" id="preview"> -->
