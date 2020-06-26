@@ -2,16 +2,17 @@ var avatar_w;
 var avatar_h;
 var avatar = new Image();
 var avatar_b64 = localStorage.avatar;
-if (avatar_b64 != "" && avatar_b64 != null) {
-    avatar.src = avatar_b64;
-    avatar.onload = () => {
-        avatar_h = avatar.height;
-        avatar_w = avatar.width;
-        drawImage()
-    }
-}
-console.log(avatar.src.length)
 window.onload = () => {
+    if (avatar_b64 != "" && avatar_b64 != null) {
+        avatar.src = avatar_b64;
+        avatar.onload = () => {
+            avatar_h = avatar.height;
+            avatar_w = avatar.width;
+            console.log('1')
+            drawImage()
+        }
+    }
+    console.log(avatar.src.length)
     // console.log(avatar_b64)
     var hint_el = document.querySelector('#info');
     setTimeout(() => {
@@ -23,6 +24,9 @@ window.onload = () => {
         // console.log("get");
         hint_el.style["margin-top"] = "-50px";
     }, 10000);
+    window.onresize = () => {
+        drawImage()
+    }
 }
 
 
@@ -60,7 +64,6 @@ function drawImage() {
     var ctx = inv_el.getContext("2d");
     let img = new Image();
 
-    // console.log('loaded')
     img.onload = ()=>{
         ctx.drawImage(img, 0, 0, width, height);
 
@@ -79,7 +82,7 @@ function drawImage() {
         ctx.fillText("" + house + (["预科部","教师","家长"].indexOf(house)!=-1?'':'书院'), 100 * e, 860 * e);
 
         if (avatar_b64 != "" && avatar_b64 != null) {
-            avatar.src = avatar_b64;
+            // avatar.src = avatar_b64;
             var angle = -20;
             var x = -350;
             var y = 928;
@@ -103,8 +106,3 @@ function drawImage() {
     img.src = './img/background.jpg';
 }
 
-window.onresize = () => {
-    setTimeout(() => {
-        drawImage()
-    }, 300)
-}
