@@ -35,22 +35,25 @@ function submit() {
 
 var cutting_tool;
 var ctx;
-
+let changeCount = 0
 function preview(c) {
     // console.log(c);
-
-    var e = document.querySelector('#target');
-    var be_cut_img = new Image()
-    be_cut_img.src = document.querySelector('#avatar-img').src;
-    var rh = be_cut_img.height;
-    var rw = be_cut_img.width;
-    var w = parseInt(e.style.width.split("px")[0])
-    var h = parseInt(e.style.height.split("px")[0])
-    cutting_tool.height = c.h / h * rh;
-    cutting_tool.width = c.w / w * rw;
-    ctx.drawImage(be_cut_img, -(c.x / h * rh), -(c.y / w * rw));
-    var b64 = cutting_tool.toDataURL('image/png');
-    document.querySelector('#preview').src = b64;
+    changeCount++
+    if(changeCount % 5 == 1){
+        document.querySelector('#cut_confirm').innerHTML = '确认'
+        var e = document.querySelector('#target');
+        var be_cut_img = new Image()
+        be_cut_img.src = document.querySelector('#avatar-img').src;
+        var rh = be_cut_img.height;
+        var rw = be_cut_img.width;
+        var w = parseInt(e.style.width.split("px")[0])
+        var h = parseInt(e.style.height.split("px")[0])
+        cutting_tool.height = c.h / h * rh;
+        cutting_tool.width = c.w / w * rw;
+        ctx.drawImage(be_cut_img, -(c.x / h * rh), -(c.y / w * rw));
+        var b64 = cutting_tool.toDataURL('image/png');
+        document.querySelector('#preview').src = b64;
+    }
 }
 
 

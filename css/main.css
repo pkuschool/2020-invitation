@@ -133,10 +133,17 @@ img {
 }
 
 #target {
-    width: 80%;
+    width: 500px;
     height: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    flex-shrink: 0;
+}
+@media screen and (max-width: 600px){
+    #target{
+        width: 75vw;
+        height: auto;
+    }
 }
 
 #preview {
