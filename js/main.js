@@ -5,7 +5,7 @@ function submit() {
     var preview_el = document.querySelector('#avatar-img');
     var name = name_el.value;
     var house = house_el.value;
-    if (name == "" || house == "请选择书院") {
+    if (name == "" || house == "请选择书院/身份") {
         alert("信息填写不完整");
         return
     } else {
