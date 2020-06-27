@@ -37,10 +37,11 @@ var cutting_tool;
 var ctx;
 let changeCount = 0
 let currentWaitTimeout = 0
+
 function preview(c) {
     // console.log(c);
     clearTimeout(currentWaitTimeout)
-    currentWaitTimeout = setTimeout(()=>{
+    currentWaitTimeout = setTimeout(() => {
         document.querySelector('#cut_confirm').innerHTML = '确认'
         var e = document.querySelector('#target');
         var be_cut_img = new Image()
@@ -107,4 +108,46 @@ function cut_cancel() {
     document.querySelector('#avatar-img').src = "#";
     document.querySelector('.shadow').setAttribute('hidden', '');
     document.querySelector('.preview-area').setAttribute('hidden', '');
+}
+
+function rot_right() {
+    jcrop_api.destroy();
+    cutting_tool = document.querySelector('#tool');
+    var original_img = new Image()
+    original_img.src = document.querySelector('#avatar-img').src;
+    var original_img_height = original_img.height;
+    var original_img_width = original_img.width;
+
+    cutting_tool.height = original_img_width;
+    cutting_tool.width = original_img_height;
+
+    var angle = 90;
+
+    ctx = cutting_tool.getContext("2d");
+    var rad = (Math.PI / 180) * angle;
+    ctx.rotate(rad);
+    var rotate_img = new Image();
+    rotate_img.src = document.querySelector('#avatar-img').src;
+
+    ctx.drawImage(rotate_img, 0, 0 - original_img_height);
+    var rotate_img_b64 = cutting_tool.toDataURL('image/png');
+    document.querySelector('#avatar-img').src = rotate_img_b64;
+    //
+    if (jcrop_api) {
+        jcrop_api.destroy();
+    }
+    document.querySelector('#target').style = "";
+    document.querySelector('#target').src = rotate_img_b64;
+    document.querySelector('#preview').src = rotate_img_b64;
+    cutting_tool = document.querySelector('#tool');
+    ctx = cutting_tool.getContext("2d");
+    document.querySelector('.preview-area').removeAttribute('hidden');
+    document.querySelector('.shadow').removeAttribute('hidden');
+    document.querySelector('#target').onload = () => {
+        jcrop_api = $.Jcrop('#target', {
+            onChange: preview,
+            onSelect: preview,
+            aspectRatio: 1 / 1
+        });
+    }
 }
