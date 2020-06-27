@@ -161,9 +161,7 @@ img {
     flex-shrink: 0;
 }
 
-.cut_ctrl{
-    /* margin-bottom: 40px; */
-}
+
 #subit{
     position: absolute;
     left: 15px;
