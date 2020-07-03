@@ -7,7 +7,7 @@ window.onload = () => {
         setPreVideoSize();
     }
     else{
-        document.querySelector('#wait_hind').setAttribute('hidden','');
+        document.querySelector('#wait_hint').setAttribute('hidden','');
     }
 
     if (avatar_b64 != "" && avatar_b64 != null) {
