@@ -144,5 +144,6 @@ function setPreVideoSize() {
 
 function playVideo() {
     setPreVideoSize();
+    document.querySelector('#tool_button').setAttribute('hidden','');
     drawImage();
 }
