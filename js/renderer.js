@@ -135,23 +135,21 @@ function setPreVideoSize() {
     preVideo_el.removeAttribute('hidden');
     var outputImg_el = document.querySelector('#output');
     outputImg_el.setAttribute('hidden', '');
-    preVideo_el.onload = function () {
-        // alert("get");
-        // preVideo_el.click();
-        setTimeout(function () {
-            outputImg_el.removeAttribute('hidden');
-            preVideo_el.setAttribute('hidden', '');
-            var hint_el = document.querySelector('#info');
-            setTimeout(() => {
-                // console.log("get");
-                hint_el.style["margin-top"] = "10px";
-            }, 100);
+    // alert("get");
+    // preVideo_el.click();
+    setTimeout(function () {
+        outputImg_el.removeAttribute('hidden');
+        preVideo_el.setAttribute('hidden', '');
+        var hint_el = document.querySelector('#info');
+        setTimeout(() => {
+            // console.log("get");
+            hint_el.style["margin-top"] = "10px";
+        }, 100);
 
-            setTimeout(() => {
-                // console.log("get");
-                hint_el.style["margin-top"] = "-50px";
-            }, 10000);
-        }, 7000);
-    }
+        setTimeout(() => {
+            // console.log("get");
+            hint_el.style["margin-top"] = "-50px";
+        }, 10000);
+    }, 7000);
 
 }
