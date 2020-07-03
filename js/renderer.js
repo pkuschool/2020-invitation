@@ -6,6 +6,9 @@ window.onload = () => {
     if (!isWeiXin()) {
         setPreVideoSize();
     }
+    else{
+        document.querySelector('#wait_hind').setAttribute('hidden','');
+    }
 
     if (avatar_b64 != "" && avatar_b64 != null) {
         avatar.src = avatar_b64;
