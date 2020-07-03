@@ -3,22 +3,23 @@ var avatar_h;
 var avatar = new Image();
 var avatar_b64 = localStorage.avatar;
 window.onload = () => {
-    if (!isWeiXin()) {
-        setPreVideoSize();
-    } else {
-        var outputImg_el = document.querySelector('#output');
-        outputImg_el.removeAttribute('hidden');
-        var hint_el = document.querySelector('#info');
-        setTimeout(() => {
-            // console.log("get");
-            hint_el.style["margin-top"] = "10px";
-        }, 100);
+    // if (!isWeiXin()) {
+    //     
+    // } else {
+    //     var outputImg_el = document.querySelector('#output');
+    //     outputImg_el.removeAttribute('hidden');
+    //     var hint_el = document.querySelector('#info');
+    //     setTimeout(() => {
+    //         // console.log("get");
+    //         hint_el.style["margin-top"] = "10px";
+    //     }, 100);
 
-        setTimeout(() => {
-            // console.log("get");
-            hint_el.style["margin-top"] = "-50px";
-        }, 10000);
-    }
+    //     setTimeout(() => {
+    //         // console.log("get");
+    //         hint_el.style["margin-top"] = "-50px";
+    //     }, 10000);
+    // }
+    setPreVideoSize();
     if (avatar_b64 != "" && avatar_b64 != null) {
         avatar.src = avatar_b64;
         avatar.onload = () => {
@@ -136,7 +137,7 @@ function setPreVideoSize() {
     var outputImg_el = document.querySelector('#output');
     outputImg_el.setAttribute('hidden', '');
     // alert("get");
-    preVideo_el.play();
+    document.querySelector('#tool_button').click();
     setTimeout(function () {
         outputImg_el.removeAttribute('hidden');
         preVideo_el.setAttribute('hidden', '');
@@ -152,4 +153,8 @@ function setPreVideoSize() {
         }, 10000);
     }, 7000);
 
+}
+
+function playVideo() {
+    document.querySelector('#preVideo').play();
 }
