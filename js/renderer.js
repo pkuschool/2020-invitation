@@ -3,6 +3,15 @@ var avatar_h;
 var avatar = new Image();
 var avatar_b64 = localStorage.avatar;
 window.onload = () => {
+    if (!isWeiXin()) {
+        // document.querySelector('#tool_button').setAttribute('hidden','');
+        setPreVideoSize();
+    }
+    else{
+        document.querySelector('#wait_hint').setAttribute('hidden','');
+        document.querySelector('#tool_button').removeAttribute('hidden');
+    }
+
     if (avatar_b64 != "" && avatar_b64 != null) {
         avatar.src = avatar_b64;
         avatar.onload = () => {
@@ -11,7 +20,7 @@ window.onload = () => {
             console.log('1')
             drawImage()
         }
-    }else{
+    } else {
         drawImage()
     }
     console.log(avatar.src.length)
@@ -22,6 +31,14 @@ window.onload = () => {
     }
 }
 
+function isWeiXin() {
+    var ua = window.navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function circleImg(ctx, img, x, y, r) {
     ctx.save();
@@ -57,7 +74,7 @@ function drawImage() {
     var ctx = inv_el.getContext("2d");
     let img = new Image();
 
-    img.onload = ()=>{
+    img.onload = () => {
         ctx.drawImage(img, 0, 0, width, height);
 
         var name = localStorage.getItem('name');
@@ -70,9 +87,9 @@ function drawImage() {
         gradient.addColorStop("1.0", "white");
         ctx.fillStyle = gradient;
         ctx.font = e * 150 + "px 'regular-font'";
-        ctx.fillText("" + name, 100 * e, 735 * e);
+        ctx.fillText("" + name, 280 * e, 435 * e);
         ctx.font = e * 70 + "px 'regular-font'";
-        ctx.fillText("" + house + (["预科部","教师","家长"].indexOf(house)!=-1?'':'书院'), 100 * e, 860 * e);
+        ctx.fillText("" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 280 * e, 560 * e);
 
         if (avatar_b64 != "" && avatar_b64 != null) {
             // avatar.src = avatar_b64;
@@ -110,3 +127,39 @@ function drawImage() {
     img.src = './img/background.png';
 }
 
+function setPreVideoSize() {
+    var height = (window.innerHeight - 20) / 1920;
+    var width = (window.innerWidth - 20) / 1081;
+    var e = Math.min(height, width);
+    height = e * 1920;
+    width = e * 1081;
+    var preVideo_el = document.querySelector('#preVideo');
+    preVideo_el.height = height;
+    preVideo_el.width = width;
+    preVideo_el.removeAttribute('hidden');
+    var outputImg_el = document.querySelector('#output');
+    outputImg_el.setAttribute('hidden', '');
+    // alert("get");
+    document.querySelector('#preVideo').play();
+    setTimeout(function () {
+        outputImg_el.removeAttribute('hidden');
+        preVideo_el.setAttribute('hidden', '');
+        var hint_el = document.querySelector('#info');
+        setTimeout(() => {
+            // console.log("get");
+            hint_el.style["margin-top"] = "10px";
+        }, 100);
+
+        setTimeout(() => {
+            // console.log("get");
+            hint_el.style["margin-top"] = "-50px";
+        }, 10000);
+    }, 7000);
+
+}
+
+function playVideo() {
+    setPreVideoSize();
+    document.querySelector('#tool_button').setAttribute('hidden','');
+    drawImage();
+}

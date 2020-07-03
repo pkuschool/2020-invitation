@@ -6,15 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2020届毕业典礼 · 邀请函</title>
     <link rel="stylesheet" href="./css/print.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/pure/2.0.3/pure.min.css">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 </head>
 
 <body style="display: flex;flex-direction: column;">
-    <div class='card' id="info" style="transition: margin-top 1s; margin-top:-600px"> 已创建邀请函图片，长按以保存<span style="font-family: 'regular-font';opacity: 0.01;"> </span></div>
+    <div class='card' id="info" style="transition: margin-top 1s; margin-top:-600px"> 已创建邀请函图片，长按以保存<span
+            style="font-family: 'regular-font';opacity: 0.01;"> </span></div>
     <canvas id="invitation" hidden>请更换浏览器</canvas>
-    <img src="" alt="" id="output">
+    <img src="" alt="" id="output" hidden>
     <img src="./img/background.png" alt="" hidden>
-    <div style="z-index: -1; position: absolute;top: 49%; color: gray;font-size: 22px;">加载资源中，请稍等片刻...</div>
+    <div id="wait_hint" style="z-index: -1; position: absolute;top: 49%; color: gray;font-size: 22px;">加载资源中，请稍等片刻...</div>
+    <video src="./video/bf.mp4" id="preVideo" hidden poster="./img/background-noleak.png"></video>
+    <button id="tool_button" class="pure-button"  onclick="playVideo()" hidden>点我开启邀请函</button>
 </body>
 
 <script src="./js/renderer.js"></script>
