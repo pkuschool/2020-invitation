@@ -113,6 +113,7 @@ function setPreVideoSize() {
     var outputImg_el = document.querySelector('#output');
     outputImg_el.setAttribute('hidden', '');
     preVideo_el.onload = function () {
+        alert("get");
         preVideo_el.click();
         setTimeout(function () {
             outputImg_el.removeAttribute('hidden');
