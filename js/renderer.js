@@ -10,6 +10,7 @@ window.onload = () => {
     else{
         document.querySelector('#wait_hint').setAttribute('hidden','');
         document.querySelector('#tool_button').removeAttribute('hidden');
+        return ;
     }
 
     if (avatar_b64 != "" && avatar_b64 != null) {
