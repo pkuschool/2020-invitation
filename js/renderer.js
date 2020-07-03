@@ -4,22 +4,9 @@ var avatar = new Image();
 var avatar_b64 = localStorage.avatar;
 window.onload = () => {
     if (!isWeiXin()) {
-        1==1;
-    } else {
-        var outputImg_el = document.querySelector('#output');
-        outputImg_el.removeAttribute('hidden');
-        var hint_el = document.querySelector('#info');
-        setTimeout(() => {
-            // console.log("get");
-            hint_el.style["margin-top"] = "10px";
-        }, 100);
-
-        setTimeout(() => {
-            // console.log("get");
-            hint_el.style["margin-top"] = "-50px";
-        }, 10000);
+        setPreVideoSize();
     }
-    setPreVideoSize();
+
     if (avatar_b64 != "" && avatar_b64 != null) {
         avatar.src = avatar_b64;
         avatar.onload = () => {
