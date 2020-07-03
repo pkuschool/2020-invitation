@@ -110,21 +110,24 @@ function setPreVideoSize() {
     preVideo_el.height = height;
     preVideo_el.width = width;
     preVideo_el.removeAttribute('hidden');
-    preVideo_el.click();
     var outputImg_el = document.querySelector('#output');
     outputImg_el.setAttribute('hidden', '');
-    setTimeout(function () {
-        outputImg_el.removeAttribute('hidden');
-        preVideo_el.setAttribute('hidden', '');
-        var hint_el = document.querySelector('#info');
-        setTimeout(() => {
-            // console.log("get");
-            hint_el.style["margin-top"] = "10px";
-        }, 100);
+    preVideo_el.onload = function () {
+        preVideo_el.click();
+        setTimeout(function () {
+            outputImg_el.removeAttribute('hidden');
+            preVideo_el.setAttribute('hidden', '');
+            var hint_el = document.querySelector('#info');
+            setTimeout(() => {
+                // console.log("get");
+                hint_el.style["margin-top"] = "10px";
+            }, 100);
 
-        setTimeout(() => {
-            // console.log("get");
-            hint_el.style["margin-top"] = "-50px";
-        }, 10000);
-    }, 7000);
+            setTimeout(() => {
+                // console.log("get");
+                hint_el.style["margin-top"] = "-50px";
+            }, 10000);
+        }, 7000);
+    }
+
 }
