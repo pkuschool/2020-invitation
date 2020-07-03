@@ -3,7 +3,22 @@ var avatar_h;
 var avatar = new Image();
 var avatar_b64 = localStorage.avatar;
 window.onload = () => {
-    setPreVideoSize();
+    if (!isWeiXin()) {
+        setPreVideoSize();
+    } else {
+        var outputImg_el = document.querySelector('#output');
+        outputImg_el.removeAttribute('hidden');
+        var hint_el = document.querySelector('#info');
+        setTimeout(() => {
+            // console.log("get");
+            hint_el.style["margin-top"] = "10px";
+        }, 100);
+
+        setTimeout(() => {
+            // console.log("get");
+            hint_el.style["margin-top"] = "-50px";
+        }, 10000);
+    }
     if (avatar_b64 != "" && avatar_b64 != null) {
         avatar.src = avatar_b64;
         avatar.onload = () => {
@@ -23,6 +38,14 @@ window.onload = () => {
     }
 }
 
+function isWeiXin() {
+    var ua = window.navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function circleImg(ctx, img, x, y, r) {
     ctx.save();
