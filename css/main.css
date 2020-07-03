@@ -17,7 +17,7 @@ body {
     box-sizing: border-box;
     border: 10px white solid;
     border-radius: 25px;
-    background-image: url(../img/background.png);
+    background-image: url(../img/background-noleak.png);
     background-clip: border-box;
     background-size: contain;
     background-position: left center;
@@ -38,7 +38,7 @@ body {
 
 div#submit-btn {
     position: absolute;
-    bottom: 9%;
+    bottom: 5%;
     right: 9%;
     left: 9%;
     /* height:60px;
@@ -55,8 +55,8 @@ div#submit-btn {
 
 #form-main {
     position: absolute;
-    top: 31%;
-    left: 9%;
+    top: 15%;
+    left: 7%;
 }
 
 label {
@@ -83,11 +83,12 @@ img {
 .file-hint {
     transition: background-color 0.15s;
     color: #ffffff;
-    background-color: #5171c4;
-    font-weight: bold;
+    font-size: smaller;
+    background-color: var(--accent);
+    /* font-weight: bold; */
     padding: 6px 8px;
     border-radius: 3px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); */
 }
 
 .file-hint:hover {
