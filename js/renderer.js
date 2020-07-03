@@ -52,6 +52,15 @@ function circleImg(ctx, img, x, y, r) {
     ctx.restore();
 }
 
+function DrawTextVertical(ctx,str,x,y,sz,e,btn) {
+    ctx.font=e * sz + "px 'regular-font'"
+    let l=str.length;
+    for(var i=0;i<l;i++)
+    {
+        ctx.fillText(str[i],x,y+(sz*e+btn*e)*i);
+    }
+}
+
 function drawImage() {
     var smooth = 3;
     // console.log(avatar)
@@ -87,11 +96,12 @@ function drawImage() {
         var gradient = ctx.createLinearGradient(0, 0, width, 0);
         gradient.addColorStop("1.0", "white");
         ctx.fillStyle = gradient;
-        ctx.font = e * 150 + "px 'regular-font'";
-        ctx.fillText("" + name, 280 * e, 435 * e);
-        ctx.font = e * 70 + "px 'regular-font'";
-        ctx.fillText("" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 280 * e, 560 * e);
-
+        // ctx.font = e * 150 + "px 'regular-font'";
+        // ctx.fillText("" + name, 280 * e, 435 * e);
+        // ctx.font = e * 70 + "px 'regular-font'";
+        // ctx.fillText("" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 280 * e, 560 * e);
+        DrawTextVertical(ctx,"" + name, 820 * e, 990 * e,130,e,10);
+        DrawTextVertical(ctx,"" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'),750 * e, 925 * e,50,e,10);
         if (avatar_b64 != "" && avatar_b64 != null) {
             // avatar.src = avatar_b64;
             var angle = -20;
@@ -155,7 +165,7 @@ function setPreVideoSize() {
             // console.log("get");
             hint_el.style["margin-top"] = "-50px";
         }, 10000);
-    }, 7000);
+    }, 100);
 
 }
 
