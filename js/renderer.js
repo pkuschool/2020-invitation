@@ -174,7 +174,7 @@ function setPreVideoSize() {
             // console.log("get");
             hint_el.style["margin-top"] = "-50px";
         }, 10000);
-    }, 100);
+    }, 7000);
 
 }
 
