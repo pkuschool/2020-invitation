@@ -46,11 +46,11 @@ function circleImg(ctx, img, x, y, r) {
 function drawImage() {
     var smooth = 3;
     // console.log(avatar)
-    var height = (window.innerHeight - 20) / 2160;
-    var width = (window.innerWidth - 20) / 1214;
+    var height = (window.innerHeight - 20) / 1920;
+    var width = (window.innerWidth - 20) / 1081;
     var e = Math.min(height, width) * smooth;
-    height = e * 2160;
-    width = e * 1214;
+    height = e * 1920;
+    width = e * 1081;
 
     var inv_el = document.querySelector('#invitation');
     var output_el = document.querySelector('#output');
@@ -79,9 +79,9 @@ function drawImage() {
         gradient.addColorStop("1.0", "white");
         ctx.fillStyle = gradient;
         ctx.font = e * 150 + "px 'regular-font'";
-        ctx.fillText("" + name, 300 * e, 535 * e);
+        ctx.fillText("" + name, 280 * e, 435 * e);
         ctx.font = e * 70 + "px 'regular-font'";
-        ctx.fillText("" + house + (["预科部","教师","家长"].indexOf(house)!=-1?'':'书院'), 300 * e, 660 * e);
+        ctx.fillText("" + house + (["预科部","教师","家长"].indexOf(house)!=-1?'':'书院'), 280 * e, 560 * e);
 
         if (avatar_b64 != "" && avatar_b64 != null) {
             // avatar.src = avatar_b64;
