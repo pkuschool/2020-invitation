@@ -4,6 +4,7 @@ var avatar = new Image();
 var avatar_b64 = localStorage.avatar;
 window.onload = () => {
     if (!isWeiXin()) {
+        document.querySelector('#tool_button').setAttribute('hidden','');
         setPreVideoSize();
     }
     else{
