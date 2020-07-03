@@ -52,6 +52,15 @@ function circleImg(ctx, img, x, y, r) {
     ctx.restore();
 }
 
+function DrawTextVertical_back(ctx,str,x,y,sz,e,btn) {
+    ctx.font=e * sz + "px 'regular-font'"
+    let l=str.length;
+    for(var i=l-1;i>=0;i--)
+    {
+        ctx.fillText(str[l-i-1],x,y-(sz*e+btn*e)*i);
+    }
+}
+
 function DrawTextVertical(ctx,str,x,y,sz,e,btn) {
     ctx.font=e * sz + "px 'regular-font'"
     let l=str.length;
@@ -100,8 +109,8 @@ function drawImage() {
         // ctx.fillText("" + name, 280 * e, 435 * e);
         // ctx.font = e * 70 + "px 'regular-font'";
         // ctx.fillText("" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 280 * e, 560 * e);
-        DrawTextVertical(ctx,"" + name, 830 * e, 1010 * e,110,e,15);
-        DrawTextVertical(ctx,"" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'),750 * e, 961 * e,50,e,10);
+        DrawTextVertical_back(ctx,"" + name, 830 * e, 1320 * e,110,e,15);
+        DrawTextVertical(ctx,"" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'),750 * e, (1395-name.length*(110+15)) * e,50,e,10);
         if (avatar_b64 != "" && avatar_b64 != null) {
             // avatar.src = avatar_b64;
             var angle = -20;
@@ -165,7 +174,7 @@ function setPreVideoSize() {
             // console.log("get");
             hint_el.style["margin-top"] = "-50px";
         }, 10000);
-    }, 700);
+    }, 100);
 
 }
 
