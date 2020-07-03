@@ -4,11 +4,12 @@ var avatar = new Image();
 var avatar_b64 = localStorage.avatar;
 window.onload = () => {
     if (!isWeiXin()) {
-        document.querySelector('#tool_button').setAttribute('hidden','');
+        // document.querySelector('#tool_button').setAttribute('hidden','');
         setPreVideoSize();
     }
     else{
         document.querySelector('#wait_hint').setAttribute('hidden','');
+        document.querySelector('#tool_button').removeAttribute('hidden');
     }
 
     if (avatar_b64 != "" && avatar_b64 != null) {
