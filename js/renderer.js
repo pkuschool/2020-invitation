@@ -165,6 +165,7 @@ function setPreVideoSize() {
     var outputImg_el = document.querySelector('#output');
     outputImg_el.setAttribute('hidden', '');
     // alert("get");
+    document.querySelector('#preVideo').playbackRate = 1.5;
     document.querySelector('#preVideo').play();
     if (isWeiXin()) {
         setTimeout(function () {
