@@ -171,24 +171,18 @@ function setPreVideoSize() {
             document.querySelector('#cover_black').setAttribute('hidden', '');
             preVideo_el.removeAttribute('hidden');
         }, 700);
-        setTimeout(function () {
-            document.querySelector('#cover_flash').removeAttribute('hidden');
-        }, 6000)
-        setTimeout(function () {
-
-            preVideo_el.setAttribute('hidden', '');
-        }, 6001);
-        setTimeout(function () {
-            document.querySelector('#cover_flash').setAttribute('hidden', '');
-            outputImg_el.removeAttribute('hidden');
-        }, 7800);
+        // setTimeout(function () {
+        //     preVideo_el.setAttribute('hidden', '');
+        //     document.querySelector('#cover_flash').removeAttribute('hidden');
+        // }, 6000)
+        // setTimeout(function () {
+        //     document.querySelector('#cover_flash').setAttribute('hidden', '');
+        //     outputImg_el.removeAttribute('hidden');
+        // }, 7800);
     }
     setTimeout(function () {
-        if (!isWeiXin()) {
-
-            outputImg_el.removeAttribute('hidden');
-            preVideo_el.setAttribute('hidden', '');
-        }
+        preVideo_el.setAttribute('hidden', '');
+        outputImg_el.removeAttribute('hidden');
         var hint_el = document.querySelector('#info');
         setTimeout(() => {
             // console.log("get");
