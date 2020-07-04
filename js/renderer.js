@@ -181,7 +181,8 @@ function setPreVideoSize() {
         //     outputImg_el.removeAttribute('hidden');
         // }, 7800);
     }
-    preVideo_el.addEventListener("ended", function () {
+    setTimeout(function () {
+        preVideo_el.pause();
         outputImg_el.removeAttribute('hidden');
         preVideo_el.setAttribute('hidden', '');
         var hint_el = document.querySelector('#info');
@@ -194,7 +195,21 @@ function setPreVideoSize() {
             // console.log("get");
             hint_el.style["margin-top"] = "-50px";
         }, 10000);
-    })
+    }, 4666);
+    // preVideo_el.addEventListener("ended", function () {
+    //     outputImg_el.removeAttribute('hidden');
+    //     preVideo_el.setAttribute('hidden', '');
+    //     var hint_el = document.querySelector('#info');
+    //     setTimeout(() => {
+    //         // console.log("get");
+    //         hint_el.style["margin-top"] = "10px";
+    //     }, 100);
+
+    //     setTimeout(() => {
+    //         // console.log("get");
+    //         hint_el.style["margin-top"] = "-50px";
+    //     }, 10000);
+    // });
 
 }
 
