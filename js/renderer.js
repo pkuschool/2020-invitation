@@ -170,9 +170,11 @@ function setPreVideoSize() {
         setTimeout(function () {
             document.querySelector('#cover_black').setAttribute('hidden', '');
             preVideo_el.removeAttribute('hidden');
-        }, 1000);
+        }, 700);
         setTimeout(function () {
             document.querySelector('#cover_flash').removeAttribute('hidden');
+        }, 6000)
+        setTimeout(function () {
             preVideo_el.setAttribute('hidden', '');
         }, 6200);
         setTimeout(function () {
