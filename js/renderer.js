@@ -3,16 +3,6 @@ var avatar_h;
 var avatar = new Image();
 var avatar_b64 = localStorage.avatar;
 window.onload = () => {
-    if (!isWeiXin()) {
-        // document.querySelector('#tool_button').setAttribute('hidden','');
-        setPreVideoSize();
-    }
-    else{
-        document.querySelector('#wait_hint').setAttribute('hidden','');
-        document.querySelector('#tool_button').removeAttribute('hidden');
-        return ;
-    }
-
     if (avatar_b64 != "" && avatar_b64 != null) {
         avatar.src = avatar_b64;
         avatar.onload = () => {
@@ -24,6 +14,15 @@ window.onload = () => {
     } else {
         drawImage()
     }
+    if (!isWeiXin()) {
+        // document.querySelector('#tool_button').setAttribute('hidden','');
+        setPreVideoSize();
+    }
+    else{
+        document.querySelector('#wait_hint').setAttribute('hidden','');
+        document.querySelector('#tool_button').removeAttribute('hidden');
+        // return ;
+    }    
     console.log(avatar.src.length)
     // console.log(avatar_b64)
 
@@ -156,6 +155,8 @@ function setPreVideoSize() {
     var preVideo_el = document.querySelector('#preVideo');
     preVideo_el.height = height;
     preVideo_el.width = width;
+    preVideo_el.style.height=height;
+    preVideo_el.style.width=width;
     preVideo_el.removeAttribute('hidden');
     var outputImg_el = document.querySelector('#output');
     outputImg_el.setAttribute('hidden', '');
@@ -181,5 +182,4 @@ function setPreVideoSize() {
 function playVideo() {
     setPreVideoSize();
     document.querySelector('#tool_button').setAttribute('hidden','');
-    drawImage();
 }
