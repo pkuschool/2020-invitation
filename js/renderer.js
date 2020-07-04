@@ -181,8 +181,8 @@ function setPreVideoSize() {
         // }, 7800);
     }
     setTimeout(function () {
-        preVideo_el.setAttribute('hidden', '');
         outputImg_el.removeAttribute('hidden');
+        preVideo_el.setAttribute('hidden', '');
         var hint_el = document.querySelector('#info');
         setTimeout(() => {
             // console.log("get");
