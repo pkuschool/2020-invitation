@@ -21,7 +21,7 @@ window.onload = () => {
     else{
         document.querySelector('#wait_hint').setAttribute('hidden','');
         document.querySelector('#tool_button').removeAttribute('hidden');
-        document.querySelector('#preVideo').setAttribute('controls','');
+        // document.querySelector('#preVideo').setAttribute('controls','');
         // return ;
     }    
     console.log(avatar.src.length)
