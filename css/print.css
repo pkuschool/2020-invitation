@@ -43,4 +43,5 @@ body {
 
 #preVideo{
     border-radius: 5px;
+    touch-action: none;
 }
