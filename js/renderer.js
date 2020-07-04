@@ -174,14 +174,17 @@ function setPreVideoSize() {
         setTimeout(function () {
             preVideo_el.setAttribute('hidden','');
             document.querySelector('#cover_flash').removeAttribute('hidden');
-        }, 6900);
+        }, 6200);
         setTimeout(function () {
             document.querySelector('#cover_flash').setAttribute('hidden','');
-        }, 7100);
+        }, 7800);
     }
     setTimeout(function () {
         outputImg_el.removeAttribute('hidden');
-        preVideo_el.setAttribute('hidden', '');
+        if(!isWeiXin())
+        {
+            preVideo_el.setAttribute('hidden', '');
+        }
         var hint_el = document.querySelector('#info');
         setTimeout(() => {
             // console.log("get");
