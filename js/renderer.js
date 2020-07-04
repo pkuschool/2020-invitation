@@ -17,13 +17,12 @@ window.onload = () => {
     if (!isWeiXin()) {
         // document.querySelector('#tool_button').setAttribute('hidden','');
         setPreVideoSize();
-    }
-    else{
-        document.querySelector('#wait_hint').setAttribute('hidden','');
+    } else {
+        document.querySelector('#wait_hint').setAttribute('hidden', '');
         document.querySelector('#tool_button').removeAttribute('hidden');
         // document.querySelector('#preVideo').setAttribute('controls','');
         // return ;
-    }    
+    }
     console.log(avatar.src.length)
     // console.log(avatar_b64)
 
@@ -52,21 +51,19 @@ function circleImg(ctx, img, x, y, r) {
     ctx.restore();
 }
 
-function DrawTextVertical_back(ctx,str,x,y,sz,e,btn) {
-    ctx.font=e * sz + "px 'regular-font'"
-    let l=str.length;
-    for(var i=l-1;i>=0;i--)
-    {
-        ctx.fillText(str[l-i-1],x,y-(sz*e+btn*e)*i);
+function DrawTextVertical_back(ctx, str, x, y, sz, e, btn) {
+    ctx.font = e * sz + "px 'regular-font'"
+    let l = str.length;
+    for (var i = l - 1; i >= 0; i--) {
+        ctx.fillText(str[l - i - 1], x, y - (sz * e + btn * e) * i);
     }
 }
 
-function DrawTextVertical(ctx,str,x,y,sz,e,btn) {
-    ctx.font=e * sz + "px 'regular-font'"
-    let l=str.length;
-    for(var i=0;i<l;i++)
-    {
-        ctx.fillText(str[i],x,y+(sz*e+btn*e)*i);
+function DrawTextVertical(ctx, str, x, y, sz, e, btn) {
+    ctx.font = e * sz + "px 'regular-font'"
+    let l = str.length;
+    for (var i = 0; i < l; i++) {
+        ctx.fillText(str[i], x, y + (sz * e + btn * e) * i);
     }
 }
 
@@ -109,8 +106,8 @@ function drawImage() {
         // ctx.fillText("" + name, 280 * e, 435 * e);
         // ctx.font = e * 70 + "px 'regular-font'";
         // ctx.fillText("" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 280 * e, 560 * e);
-        DrawTextVertical_back(ctx,"" + name, 830 * e, 1320 * e,110,e,15);
-        DrawTextVertical(ctx,"" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'),750 * e, (1395-name.length*(110+15)) * e,50,e,10);
+        DrawTextVertical_back(ctx, "" + name, 830 * e, 1320 * e, 110, e, 15);
+        DrawTextVertical(ctx, "" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 750 * e, (1395 - name.length * (110 + 15)) * e, 50, e, 10);
         if (avatar_b64 != "" && avatar_b64 != null) {
             // avatar.src = avatar_b64;
             var angle = -20;
@@ -132,15 +129,6 @@ function drawImage() {
         output_el.src = b64;
 
         var hint_el = document.querySelector('#info');
-        setTimeout(() => {
-            // console.log("get");
-            hint_el.style["margin-top"] = "10px";
-        }, 500);
-
-        setTimeout(() => {
-            // console.log("get");
-            hint_el.style["margin-top"] = "-50px";
-        }, 10000);
         // ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
         // ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
     }
@@ -148,6 +136,9 @@ function drawImage() {
 }
 
 function setPreVideoSize() {
+    if (isWeiXin()) {
+        document.querySelector('#cover_black').removeAttribute('hidden');
+    }
     var height = (window.innerHeight - 20) / 1920;
     var width = (window.innerWidth - 20) / 1081;
     var e = Math.min(height, width);
@@ -156,13 +147,19 @@ function setPreVideoSize() {
     var preVideo_el = document.querySelector('#preVideo');
     preVideo_el.height = height;
     preVideo_el.width = width;
-    preVideo_el.style.height=height;
-    preVideo_el.style.width=width;
+    preVideo_el.style.height = height;
+    preVideo_el.style.width = width;
     preVideo_el.removeAttribute('hidden');
     var outputImg_el = document.querySelector('#output');
-    outputImg_el.setAttribute('hidden', '');
+    if (!isWeiXin()) {
+        outputImg_el.setAttribute('hidden', '');
+    }
     // alert("get");
     document.querySelector('#preVideo').play();
+    setTimeout(function () {
+        outputImg_el.setAttribute('hidden', '');
+        document.querySelector('#cover_black').setAttribute('hidden','');
+    },150);
     setTimeout(function () {
         outputImg_el.removeAttribute('hidden');
         preVideo_el.setAttribute('hidden', '');
@@ -182,5 +179,5 @@ function setPreVideoSize() {
 
 function playVideo() {
     setPreVideoSize();
-    document.querySelector('#tool_button').setAttribute('hidden','');
+    document.querySelector('#tool_button').setAttribute('hidden', '');
 }
