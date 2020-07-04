@@ -3,7 +3,7 @@ var avatar_h;
 var avatar = new Image();
 var avatar_b64 = localStorage.avatar;
 window.onload = () => {
-    alert("already change");
+    alert("already change1");
     if (avatar_b64 != "" && avatar_b64 != null) {
         avatar.src = avatar_b64;
         avatar.onload = () => {
@@ -148,8 +148,12 @@ function setPreVideoSize() {
     var preVideo_el = document.querySelector('#preVideo');
     preVideo_el.height = height;
     preVideo_el.width = width;
-    preVideo_el.style.height = height;
-    preVideo_el.style.width = width;
+    if(isWeiXin())
+    {
+        var cover_black = document.querySelector('#cover_black');
+        cover_black.style.height=height;
+        cover_black.style.width=width;
+    }
     preVideo_el.removeAttribute('hidden');
     var outputImg_el = document.querySelector('#output');
     if (!isWeiXin()) {
