@@ -3,6 +3,15 @@ var avatar_h;
 var avatar = new Image();
 var avatar_b64 = localStorage.avatar;
 window.onload = () => {
+    if (isWeiXin()) {
+        var height = (window.innerHeight - 20) / 1920;
+        var width = (window.innerWidth - 20) / 1081;
+        var e = Math.min(height, width);
+        height = e * 1920;
+        width = e * 1081;
+        document.querySelector('#cover_black').style.height = height;
+        document.querySelector('#cover_black').style.width = width;
+    }
     if (avatar_b64 != "" && avatar_b64 != null) {
         avatar.src = avatar_b64;
         avatar.onload = () => {
@@ -135,6 +144,9 @@ function drawImage() {
 }
 
 function setPreVideoSize() {
+    if (isWeiXin()) {
+        document.querySelector('#cover_black').removeAttribute('hidden');
+    }
     var height = (window.innerHeight - 20) / 1920;
     var width = (window.innerWidth - 20) / 1081;
     var e = Math.min(height, width);
@@ -145,11 +157,20 @@ function setPreVideoSize() {
     preVideo_el.width = width;
     preVideo_el.style.height = height;
     preVideo_el.style.width = width;
-    preVideo_el.removeAttribute('hidden');
+    if (!isWeiXin()) {
+        preVideo_el.removeAttribute('hidden');
+    }
     var outputImg_el = document.querySelector('#output');
     outputImg_el.setAttribute('hidden', '');
     // alert("get");
     document.querySelector('#preVideo').play();
+    if(isWeiXin())
+    {
+        setTimeout(function () { 
+            document.querySelector('#cover_black').setAttribute('hidden','');
+            preVideo_el.removeAttribute('hidden');
+        },1000);
+    }
     setTimeout(function () {
         outputImg_el.removeAttribute('hidden');
         preVideo_el.setAttribute('hidden', '');
