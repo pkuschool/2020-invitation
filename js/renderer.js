@@ -3,7 +3,6 @@ var avatar_h;
 var avatar = new Image();
 var avatar_b64 = localStorage.avatar;
 window.onload = () => {
-    alert("already change1");
     if (avatar_b64 != "" && avatar_b64 != null) {
         avatar.src = avatar_b64;
         avatar.onload = () => {
@@ -21,7 +20,6 @@ window.onload = () => {
     } else {
         document.querySelector('#wait_hint').setAttribute('hidden', '');
         document.querySelector('#tool_button').removeAttribute('hidden');
-        // document.querySelector('#preVideo').setAttribute('controls','');
         // return ;
     }
     console.log(avatar.src.length)
@@ -137,9 +135,6 @@ function drawImage() {
 }
 
 function setPreVideoSize() {
-    if (isWeiXin()) {
-        document.querySelector('#cover_black').removeAttribute('hidden');
-    }
     var height = (window.innerHeight - 20) / 1920;
     var width = (window.innerWidth - 20) / 1081;
     var e = Math.min(height, width);
@@ -148,23 +143,13 @@ function setPreVideoSize() {
     var preVideo_el = document.querySelector('#preVideo');
     preVideo_el.height = height;
     preVideo_el.width = width;
-    if(isWeiXin())
-    {
-        var cover_black = document.querySelector('#cover_black');
-        cover_black.style.height=height;
-        cover_black.style.width=width;
-    }
+    preVideo_el.style.height = height;
+    preVideo_el.style.width = width;
     preVideo_el.removeAttribute('hidden');
     var outputImg_el = document.querySelector('#output');
-    if (!isWeiXin()) {
-        outputImg_el.setAttribute('hidden', '');
-    }
+    outputImg_el.setAttribute('hidden', '');
     // alert("get");
     document.querySelector('#preVideo').play();
-    setTimeout(function () {
-        outputImg_el.setAttribute('hidden', '');
-        document.querySelector('#cover_black').setAttribute('hidden','');
-    },150);
     setTimeout(function () {
         outputImg_el.removeAttribute('hidden');
         preVideo_el.setAttribute('hidden', '');
