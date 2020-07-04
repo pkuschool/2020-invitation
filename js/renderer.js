@@ -142,7 +142,7 @@ function drawImage() {
         // ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
         // ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
     }
-    img.src = './img/background.jpg';
+    img.src = './img/background.png';
 }
 
 function setPreVideoSize() {
