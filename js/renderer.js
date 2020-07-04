@@ -5,10 +5,10 @@ var avatar_b64 = localStorage.avatar;
 window.onload = () => {
     if (isWeiXin()) {
         var height = (window.innerHeight - 20) / 1920;
-        var width = (window.innerWidth - 20) / 1081;
+        var width = (window.innerWidth - 20) / 1080;
         var e = Math.min(height, width);
         height = e * 1920;
-        width = e * 1081;
+        width = e * 1080;
         document.querySelector('#cover_black').height = height;
         document.querySelector('#cover_black').width = width;
         document.querySelector('#cover_flash').height = height;
@@ -81,10 +81,10 @@ function drawImage() {
     var smooth = 3;
     // console.log(avatar)
     var height = (window.innerHeight - 20) / 1920;
-    var width = (window.innerWidth - 20) / 1081;
+    var width = (window.innerWidth - 20) / 1080;
     var e = Math.min(height, width) * smooth;
     height = e * 1920;
-    width = e * 1081;
+    width = e * 1080;
 
     var inv_el = document.querySelector('#invitation');
     var output_el = document.querySelector('#output');
@@ -142,7 +142,7 @@ function drawImage() {
         // ctx.fillText("时间: 不清楚", left_dis * e, top_dis * e);
         // ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
     }
-    img.src = './img/background.png';
+    img.src = './img/background.jpg';
 }
 
 function setPreVideoSize() {
@@ -150,7 +150,7 @@ function setPreVideoSize() {
         document.querySelector('#cover_black').removeAttribute('hidden');
     }
     var height = (window.innerHeight - 20) / 1920;
-    var width = (window.innerWidth - 20) / 1081;
+    var width = (window.innerWidth - 20) / 1080;
     var e = Math.min(height, width);
     height = e * 1920;
     width = e * 1081;
@@ -181,7 +181,7 @@ function setPreVideoSize() {
         //     outputImg_el.removeAttribute('hidden');
         // }, 7800);
     }
-    setTimeout(function () {
+    preVideo_el.addEventListener("ended", function () {
         outputImg_el.removeAttribute('hidden');
         preVideo_el.setAttribute('hidden', '');
         var hint_el = document.querySelector('#info');
@@ -194,7 +194,7 @@ function setPreVideoSize() {
             // console.log("get");
             hint_el.style["margin-top"] = "-50px";
         }, 10000);
-    }, 7000);
+    })
 
 }
 
