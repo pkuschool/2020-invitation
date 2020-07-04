@@ -172,17 +172,18 @@ function setPreVideoSize() {
             preVideo_el.removeAttribute('hidden');
         }, 1000);
         setTimeout(function () {
-            preVideo_el.setAttribute('hidden','');
+            preVideo_el.setAttribute('hidden', '');
             document.querySelector('#cover_flash').removeAttribute('hidden');
         }, 6200);
         setTimeout(function () {
-            document.querySelector('#cover_flash').setAttribute('hidden','');
+            document.querySelector('#cover_flash').setAttribute('hidden', '');
+            outputImg_el.removeAttribute('hidden');
         }, 7800);
     }
     setTimeout(function () {
-        outputImg_el.removeAttribute('hidden');
-        if(!isWeiXin())
-        {
+        if (!isWeiXin()) {
+
+            outputImg_el.removeAttribute('hidden');
             preVideo_el.setAttribute('hidden', '');
         }
         var hint_el = document.querySelector('#info');
