@@ -9,8 +9,8 @@ window.onload = () => {
         var e = Math.min(height, width);
         height = e * 1920;
         width = e * 1081;
-        document.querySelector('#cover_black').style.height = height;
-        document.querySelector('#cover_black').style.width = width;
+        document.querySelector('#cover_black').height = height;
+        document.querySelector('#cover_black').width = width;
     }
     if (avatar_b64 != "" && avatar_b64 != null) {
         avatar.src = avatar_b64;
