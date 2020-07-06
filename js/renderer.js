@@ -209,7 +209,7 @@ function setPreVideoSize() {
         setTimeout(function () {
             document.querySelector('#cover_black').setAttribute('hidden', '');
             preVideo_el.removeAttribute('hidden');
-        }, 600);
+        }, 800);
         // setTimeout(function () {
         //     preVideo_el.setAttribute('hidden', '');
         //     document.querySelector('#cover_flash').removeAttribute('hidden');
