@@ -62,7 +62,7 @@ function circleImg(ctx, img, x, y, r) {
 }
 
 function DrawTextVertical_back(ctx, str, x, y, sz, e, btn) {
-    ctx.font = e * sz + "px 'regular-font'"
+    ctx.font = e * sz + "px 'regular-font'";
     let l = str.length;
     for (var i = l - 1; i >= 0; i--) {
         ctx.fillText(str[l - i - 1], x, y - (sz * e + btn * e) * i);
@@ -70,11 +70,24 @@ function DrawTextVertical_back(ctx, str, x, y, sz, e, btn) {
 }
 
 function DrawTextVertical(ctx, str, x, y, sz, e, btn) {
-    ctx.font = e * sz + "px 'regular-font'"
+    ctx.font = e * sz + "px 'regular-font'";
     let l = str.length;
     for (var i = 0; i < l; i++) {
         ctx.fillText(str[i], x, y + (sz * e + btn * e) * i);
     }
+}
+
+function DrawEnglishStrVertical(ctx, str, x, y, sz, e) {
+    ctx.font = e * sz + "px 'Arial'";
+    var rad = (Math.PI / 180) * 90;
+    ctx.rotate(rad);
+    ctx.fillText(str, y, -x);
+    ctx.rotate(-rad);
+}
+
+function getEnglishWidth(ctx, str, sz, e) {
+    ctx.font = e * sz + "px 'Arial'";
+    return ctx.measureText(str).width;
 }
 
 function drawImage() {
@@ -116,8 +129,25 @@ function drawImage() {
         // ctx.fillText("" + name, 280 * e, 435 * e);
         // ctx.font = e * 70 + "px 'regular-font'";
         // ctx.fillText("" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 280 * e, 560 * e);
-        DrawTextVertical_back(ctx, "" + name, 830 * e, 1320 * e, 110, e, 15);
-        DrawTextVertical(ctx, "" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 750 * e, (1395 - name.length * (110 + 15)) * e, 50, e, 10);
+        console.log("name length:", name.length);
+        if (!isEng(name)) {
+            DrawTextVertical_back(ctx, "" + name, 830 * e, 1320 * e, 110, e, 15);
+            if (!isEng(house)) {
+                DrawTextVertical(ctx, "" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 750 * e, (1395 - name.length * (110 + 15)) * e, 50, e, 10);
+            } else {
+                DrawEnglishStrVertical(ctx, house, 770 * e, (1395 - name.length * (110 + 15)) * e, 50, e);
+            }
+        } else {
+
+            DrawEnglishStrVertical(ctx, name, 870 * e, (1340 * e) - getEnglishWidth(ctx, name, 110, e), 110, e);
+            if (!isEng(house)) {
+                DrawTextVertical(ctx, "" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 790 * e, (1390 * e)-getEnglishWidth(ctx, name, 110, e), 50, e, 10);
+            } else {
+                DrawEnglishStrVertical(ctx, house, 800 * e, (1350 * e)-getEnglishWidth(ctx, name, 110, e), 50, e);
+            }
+
+        }
+
         if (avatar_b64 != "" && avatar_b64 != null) {
             // avatar.src = avatar_b64;
             var angle = -20;
@@ -143,6 +173,14 @@ function drawImage() {
         // ctx.fillText("方式: 不知道", left_dis * e, (top_dis + font_size+10) * e);
     }
     img.src = './img/background.png';
+}
+
+function isEng(str) {
+    var re = /^[a-z\sA-Z 0-9]+$/;
+    if (!re.test(str)) {
+        return false;
+    }
+    return true;
 }
 
 function setPreVideoSize() {
@@ -181,6 +219,10 @@ function setPreVideoSize() {
         //     outputImg_el.removeAttribute('hidden');
         // }, 7800);
     }
+    // preVideo_el.setAttribute('hidden', '');
+    // outputImg_el.removeAttribute('hidden');
+
+
     preVideo_el.addEventListener("ended", function () {
         outputImg_el.removeAttribute('hidden');
         preVideo_el.setAttribute('hidden', '');
