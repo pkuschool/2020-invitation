@@ -141,7 +141,7 @@ function drawImage() {
 
             DrawEnglishStrVertical(ctx, name, 870 * e, (1340 * e) - getEnglishWidth(ctx, name, 110, e), 110, e);
             if (!isEng(house)) {
-                DrawTextVertical(ctx, "" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 790 * e, (1390 * e)-getEnglishWidth(ctx, name, 110, e), 50, e, 10);
+                DrawTextVertical(ctx, "" + house + (["预科部", "教师", "家长","校友"].indexOf(house) != -1 ? '' : '书院'), 790 * e, (1390 * e)-getEnglishWidth(ctx, name, 110, e), 50, e, 10);
             } else {
                 DrawEnglishStrVertical(ctx, house, 800 * e, (1350 * e)-getEnglishWidth(ctx, name, 110, e), 50, e);
             }
