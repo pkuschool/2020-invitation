@@ -133,7 +133,7 @@ function drawImage() {
         if (!isEng(name)) {
             DrawTextVertical_back(ctx, "" + name, 830 * e, 1320 * e, 110, e, 15);
             if (!isEng(house)) {
-                DrawTextVertical(ctx, "" + house + (["预科部", "教师", "家长"].indexOf(house) != -1 ? '' : '书院'), 750 * e, (1395 - name.length * (110 + 15)) * e, 50, e, 10);
+                DrawTextVertical(ctx, "" + house + (["预科部", "教师", "家长","校友"].indexOf(house) != -1 ? '' : '书院'), 750 * e, (1395 - name.length * (110 + 15)) * e, 50, e, 10);
             } else {
                 DrawEnglishStrVertical(ctx, house, 770 * e, (1395 - name.length * (110 + 15)) * e, 50, e);
             }
